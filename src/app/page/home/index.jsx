@@ -519,9 +519,9 @@ const Home = () => {
                     <h2 className={Styles.mainTitle}>Business Segments</h2>
                     <div className={Styles.viewAllBtn}>View All Segments →</div>
                 </div>
-                <p className={Styles.subDesc}>
+                <div className={Styles.subDesc}>
                     Explore our specialized service areas designed for every stage of the healthcare talent lifecycle.
-                </p>
+                </div>
 
                 {/* 四个业务卡片容器 */}
                 <div className={Styles.cardContainer}>
