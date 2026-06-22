@@ -189,17 +189,17 @@ const Home = () => {
             <div className={Styles.bannerBg}>
                 <div className={Styles.bannerContent}>
                     <div className={Styles.tagTip}>Healthcare Intelligence Platform</div>
-                    <h1 className={Styles.mainTitle}>
+                    <div className={Styles.mainTitle}>
                         Global Healthcare<br />
                         Talent &<br />
                         Intelligence<br />
                         Platform
-                    </h1>
-                    <p className={Styles.descText}>
+                    </div>
+                    <div className={Styles.descText}>
                         Connecting Life Sciences Companies, Investors,<br />
                         And Decision-Makers With Top Talent And<br />
                         Expert Insights Worldwide.
-                    </p>
+                    </div>
                     <div className={Styles.btnGroup}>
                         <button className={Styles.btnPrimary}>Talk To Us</button>
                         <button className={Styles.btnOutline}>Explore Services</button>
@@ -535,9 +535,9 @@ const Home = () => {
                         </div>
 
                         <h3 className={Styles.cardTitle}>Executive Search</h3>
-                        <p className={Styles.cardText}>
+                        <div className={Styles.cardText}>
                             Specializing in building diverse senior leadership teams, we employ a data-driven approach for efficient and precise searches.
-                        </p>
+                        </div>
                         <div className={Styles.exploreLink}>Explore &gt;</div>
                     </div>
 
@@ -552,9 +552,9 @@ const Home = () => {
                         </div>
 
                         <h3 className={Styles.cardTitle}>Flexible Staffing</h3>
-                        <p className={Styles.cardText}>
+                        <div className={Styles.cardText}>
                             IntelliPro provides tailored workforce management solutions, offering partners access to a vast candidate pool and a mix of high-tech and human-focused strategies.
-                        </p>
+                        </div>
                         <div className={Styles.exploreLink}>Explore &gt;</div>
                     </div>
 
@@ -569,9 +569,9 @@ const Home = () => {
                         </div>
 
                         <h3 className={Styles.cardTitle}>Global HR Solutions</h3>
-                        <p className={Styles.cardText}>
+                        <div className={Styles.cardText}>
                             Three Global Workforce Management solutions: EOR, PEO and HRO, helping you simplify global team management while ensure legal compliance.
-                        </p>
+                        </div>
                         <div className={Styles.exploreLink}>Explore &gt;</div>
                     </div>
 
@@ -586,14 +586,12 @@ const Home = () => {
                         </div>
 
                         <h3 className={Styles.cardTitle}>Business Process Outsourcing (BPO)</h3>
-                        <p className={Styles.cardText}>
+                        <div className={Styles.cardText}>
                             Enhance your business with our BPO solutions: Trust & Safety, Data Management, Technical Support, User Support, App Development, and more.
-                        </p>
+                        </div>
                         <div className={Styles.exploreLink}>Explore &gt;</div>
                     </div>
                 </div>
-
-
             </div>
 
             {/* Our Clients */}

@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Navigate, createBrowserRouter } from 'react-router-dom'
-
+import { Spin } from 'antd';
 // 懒加载页面组件
 const Home = lazy(() => import('./home/index'))
 const BusinessSegments = lazy(() => import('./businessSegments/index'))
@@ -8,7 +8,7 @@ const Contact = lazy(() => import('./contact/index'))
 
 // 公共加载占位组件
 const lazyWrap = (Element) => (
-  <Suspense fallback={<div>加载中...</div>}>
+  <Suspense fallback={<Spin />}>
     <Element />
   </Suspense>
 )

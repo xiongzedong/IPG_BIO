@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { message } from 'antd';
-import { ArrowDownOutlined } from '@ant-design/icons';
+import { ArrowDownOutlined,EnvironmentOutlined } from '@ant-design/icons';
 import Styles from './index.module.scss'
 import { Link, useLocation } from 'react-router-dom'
 // 顶部logo图标（沿用你现有Home页面svg）
@@ -8,6 +8,8 @@ import { ReactComponent as Home1 } from '../../assets/home1.svg'
 import { ReactComponent as Home2 } from '../../assets/home2.svg'
 // 总部办公楼图片
 import contact1 from '../../assets/contact1.png'
+import contact2 from '../../assets/contact2.jpg'
+
 
 const Contact = () => {
     const location = useLocation()
@@ -145,21 +147,22 @@ const Contact = () => {
 
             {/* Global Headquarters 总部信息区域 */}
             <div className={Styles.headquartersWrap}>
-                <h2 className={Styles.sectionTitle}>Global Headquarters</h2>
+                <div className={Styles.sectionTitle}>Global Headquarters</div>
+                <span className={Styles.headquartersInfo}>Website: </span>
                 <a href="https://www.intelliprogroup.com" target="_blank" rel="noopener noreferrer" className={Styles.websiteLink}>
-                    Website: www.intelliprogroup.com
+                    www.intelliprogroup.com
                 </a>
 
                 <div className={Styles.headquartersContent}>
                     <div className={Styles.hqImgBox}>
-                        <img src={contact1} alt="San Jose Office" className={Styles.hqImg} />
+                        <img src={contact2} alt="San Jose Office" className={Styles.hqImg} />
                     </div>
                     <div className={Styles.hqInfo}>
-                        <h3 className={Styles.hqCity}>San Jose</h3>
-                        <p className={Styles.hqText}>160 E Tasman Dr #200, San Jose, CA 95134</p>
-                        <p className={Styles.hqText}>408.200.9891 | hires@intellipro.com</p>
+                        <div className={Styles.hqCity}>San Jose</div>
+                        <div className={Styles.hqText}>160 E Tasman Dr #200, San Jose, CA 95134</div>
+                        <div className={Styles.hqText}>408.200.9891 | hires@intellipro.com</div>
                         <div className={Styles.mapLink}>
-                            <span>📍</span> Find Us On Map
+                            <EnvironmentOutlined className={Styles.mapLink_img} />Find Us On Map
                         </div>
                     </div>
                 </div>
@@ -229,13 +232,13 @@ const Contact = () => {
             <div className={Styles.footerWrap}>
                 <div className={Styles.footerContent}>
                     <div className={Styles.footerHeadQuarter}>
-                        <p className={Styles.footerTipLabel}>Global Headquarters</p>
-                        <p className={Styles.footerAddress}>160 E Tasman Dr #200, San Jose, CA 95134</p>
-                        <p className={Styles.footerContact}>408.200.9891 | hires@intellipro.com</p>
+                        <div className={Styles.footerTipLabel}>Global Headquarters</div>
+                        <div className={Styles.footerAddress}>160 E Tasman Dr #200, San Jose, CA 95134</div>
+                        <div className={Styles.footerContact}>408.200.9891 | hires@intellipro.com</div>
                     </div>
 
                     <div className={Styles.footerOfficeWrap}>
-                        <p className={Styles.footerTipLabel}>Global Offices</p>
+                        <div className={Styles.footerTipLabel}>Global Offices</div>
                         <div className={Styles.officeGrid}>
                             <span>Silicon Valley</span>
                             <span>Los Angeles</span>

@@ -30,10 +30,13 @@
     text-align: left;
     color: #666;
     margin-right: 48px;
-    text-decoration: none; /* 清除默认下划线 */
+    text-decoration: none;
+
+    /* 清除默认下划线 */
     &:hover {
         color: #333;
-        text-decoration: none; /* 清除默认下划线 */
+        text-decoration: none;
+        /* 清除默认下划线 */
     }
 }
 
@@ -151,7 +154,6 @@ $border-color: #e6edff;
     border-bottom: solid 1.7px #e8e8e8;
 
     .serviceItem {
-
         display: flex;
         align-items: center;
         gap: 24px;
@@ -192,10 +194,8 @@ $border: #e6edff;
 $textGray: #555;
 $textDark: #222;
 
-// 全局通用区块
 .section {
-
-    padding: 60px 240px 60px 240px;
+    padding: 240px 240px 60px 240px;
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
@@ -671,11 +671,10 @@ $text-gray: #555555;
     }
 
     .mainTitle {
-        font-size: 48px;
+        font-size: 80px;
         font-weight: 700;
         color: #222222;
         margin: 0;
-        line-height: 1;
     }
 
     .blueLine {
@@ -825,25 +824,1067 @@ $text-gray: #555555;
 }
 
 // 响应式适配
+@media (max-width: 1440px) {
+    .headerLeft {
+        flex: 1;
+        margin-left: 120px;
+        display: flex;
+    }
+
+    .section {
+        padding: 240px 32px 60px 32px;
+        display: grid
+    }
+
+    .growthWrap,
+    .dataWrap,
+    .vmWrap,
+    .businessWrap {
+        padding-left: 120px;
+        padding-right: 120px;
+    }
+
+    .businessWrap {
+        padding: 0px 110px 0px 120px;
+        margin-top: 180px;
+
+        .businessHead {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+
+            .mainTitle {
+                font-size: 36px;
+                color: $text-dark;
+                margin: 0;
+                font-weight: 600;
+            }
+
+            .viewAllBtn {
+                border: 1px solid $border-normal;
+                border-radius: 50px;
+                cursor: pointer;
+                background: #fff;
+                margin-left: 16px;
+                height: 58px;
+                line-height: 58px;
+                width: 295px;
+                font-size: 24px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                text-align: center;
+                color: #377ded;
+            }
+        }
+
+        .subDesc {
+            color: #5c5e6b;
+            font-size: 25px;
+            margin-bottom: 85px;
+        }
+
+        .cardContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            .businessCard {
+                width: 590px;
+                height: 578px;
+                border-radius: 33.6px;
+                box-shadow: 0 4.2px 16.8px 0 rgba(0, 0, 0, 0.04);
+                border: solid 4.2px #dbeafe;
+                background-color: #fff;
+
+                /* hover：上移4px + 加深阴影 */
+                &:hover {
+                    transform: translateY(-4px);
+                    transition: transform 0.25s, box-shadow 0.25s;
+                    box-shadow: 0 4.2px 16.8px 0 rgba(0, 0, 0, 0.04), 0 4px 4px 0 rgba(55, 125, 237, 0.25);
+                    border: solid 4.2px #377ded;
+                }
+
+                .businessCard_item {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 71px 71px 0px 71px;
+                }
+
+                .cardTag_content {
+                    padding: 70px 70px 0px 70px;
+                }
+
+                .cardTag {
+
+                    height: 56.7px;
+                    flex-grow: 0;
+                    padding: 0px 18.9px 0px 27.4px;
+                    border-radius: 35211120px;
+                    border: solid 2.1px #bfdbfe;
+                    background-color: #eff6ff;
+                    font-family: Inter;
+                    font-size: 23.1px;
+                    font-weight: 500;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 56.7px;
+                    letter-spacing: 0.92px;
+                    text-align: center;
+                    color: #377ded;
+                }
+
+                .iconBox {
+                    width: 117.5px;
+                    height: 117.5px;
+                    background: $light-blue-bg;
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 24px;
+                    color: $primary-blue;
+                    margin-bottom: 20px;
+                }
+
+                .cardTitle {
+                    font-size: 32px;
+                    color: #101828;
+                    margin-top: 43px;
+                    font-weight: 600;
+                    padding-left: 71px;
+                }
+
+                .cardText {
+                    font-size: 14px;
+                    color: $text-gray;
+                    line-height: 1.6;
+                    padding-left: 71px;
+                    margin-bottom: 63px;
+                }
+
+                .exploreLink {
+                    color: #377ded;
+                    font-size: 36.3px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    padding-left: 71px;
+                }
+
+                &:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 8px 26px rgba(55, 126, 237, 0.15);
+
+                    .exploreLink {
+                        color: $primary-blue;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    .serviceWrap {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        border-bottom: solid 1.7px #e8e8e8;
+
+        .serviceItem {
+
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 48px 28px;
+            border-right: 1px solid $border-color;
+
+            &:last-child {
+                border-right: none;
+            }
+
+            // 圆角浅蓝色图标容器
+            .iconBox {
+                width: 88px;
+                height: 88px;
+                flex-shrink: 0;
+                background-color: $light-blue-bg;
+                border-radius: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 42px;
+                color: $primary-blue;
+            }
+
+            .textBox {
+                font-size: 32px;
+                font-weight: 600;
+                color: $text-color;
+                line-height: 1.3;
+                white-space: pre-line;
+            }
+        }
+    }
+
+    .bannerBg {
+        width: 100%;
+        height: 799px;
+        background-image: url('../../assets/home3.png');
+        background-size: cover;
+        background-position: right center;
+        background-repeat: no-repeat;
+        position: relative;
+
+        // 左侧白色渐变遮罩，保证文字清晰
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -1px;
+            width: 62%;
+            height: 801px;
+            background: linear-gradient(90deg, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .bannerContent {
+            position: relative;
+            z-index: 2;
+            padding: 100px 10px 100px 120px;
+            max-width: 650px;
+
+            .tagTip {
+                display: inline-block;
+                padding: 6px 16px;
+                background: $lightBg;
+                border: 1px solid $borderColor;
+                border-radius: 9999px;
+                font-size: 13px;
+                color: $primaryColor;
+                letter-spacing: 0.5px;
+                margin-bottom: 24px;
+            }
+
+            .mainTitle {
+                font-size: clamp(32px, 4vw, 52px);
+                font-weight: 900;
+                color: $textDark;
+                line-height: 1.2;
+                margin: 0 0 20px;
+            }
+
+            .descText {
+                font-size: 16px;
+                color: $textGray;
+                line-height: 1.6;
+                margin-bottom: 32px;
+            }
+
+            .btnGroup {
+                display: flex;
+                gap: 16px;
+
+                .btnPrimary {
+                    padding: 12px 26px;
+                    background: $primaryColor;
+                    color: #fff;
+                    border: none;
+                    border-radius: 6px;
+                    font-size: 15px;
+                    cursor: pointer;
+                }
+
+                .btnOutline {
+                    padding: 12px 26px;
+                    background: transparent;
+                    color: $primaryColor;
+                    border: 1px solid $primaryColor;
+                    border-radius: 6px;
+                    font-size: 15px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .clientLogoContainer {
+        padding: 0px 120px 0px 120px;
+        margin-top: 180px;
+
+        .titleBox {
+            display: flex;
+            align-items: flex-end;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .mainTitle {
+            font-size: 80px;
+            font-weight: 700;
+            color: #222222;
+            margin: 0;
+        }
+
+        .blueLine {
+            width: 72px;
+            height: 4px;
+            background-color: #0088ff;
+        }
+
+        .descText {
+            font-size: 18px;
+            color: #666666;
+            margin: 0;
+        }
+
+        .clientDescTxt {
+            margin-top: 49px;
+            font-family: SofiaPro;
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+            margin-bottom: 24px;
+        }
+
+        .titleBlueLine {
+            display: inline-block;
+            width: 64px;
+            height: 3px;
+            margin: 43px 0 18px 16px;
+            background-color: #377ded;
+        }
+
+        .logoSwiperWrap {
+            width: 100%;
+        }
+
+        .brandSwiper {
+            width: 100%;
+        }
+
+        /* 网格布局：4列，自动换行2行 */
+        .brandGridBox {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            width: 100%;
+        }
+
+        .brandSlideWrap {
+            width: 100%;
+        }
+
+        .brandLogoBox {
+            border: 1px solid #eee;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 288px;
+
+            .logoImg {
+                width: 100%;
+                height: 100%;
+                // 等比例铺满盒子不变形，超出部分裁剪
+                object-fit: contain;
+
+            }
+        }
+
+        /* 分页指示器样式 */
+        .pageIndicatorWrap {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .pageNormalLine {
+            width: 64px;
+            height: 3px;
+            background: #ddd;
+            cursor: pointer;
+        }
+
+        .pageActiveLine {
+            width: 64px;
+            height: 3px;
+            background: #0099ff;
+            cursor: pointer;
+        }
+    }
+}
+
 @media (max-width: 1024px) {
-    .footerWrap .officeGrid {
-        grid-template-columns: repeat(6, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .footerWrap .officeGrid {
-        grid-template-columns: repeat(4, 1fr);
+    .headerLeft {
+        flex: 1;
+        margin-left: 50px;
+        display: flex;
     }
 
-    .footerCopyright {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
+    .section {
+        padding: 104px 32px 60px 32px;
+        gap: 0px;
 
-@media (max-width: 414px) {
-    .footerWrap .officeGrid {
-        grid-template-columns: repeat(2, 1fr);
+        .sectionRight {
+            margin-top: 12px;
+        }
+    }
+
+
+    .vmWrap {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 45px;
+
+        .mainTitle {
+            font-size: 42px;
+            margin: 0 0 32px;
+            color: $text-dark;
+
+            .blueText {
+                color: $primary-blue;
+            }
+        }
+
+        .vmCard {
+            border: 1px solid $border-color;
+            border-radius: 6px;
+            padding: 28px 32px;
+            margin-bottom: 20px;
+
+            .cardHeader {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                margin-bottom: 16px;
+
+                .iconBox {
+                    width: 56px;
+                    height: 56px;
+                    background-color: $light-blue-bg;
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 24px;
+                    color: $primary-blue;
+                }
+
+                .cardTitle {
+                    font-size: 26px;
+                    font-weight: 600;
+                    color: $text-dark;
+                    margin: 0;
+                }
+            }
+
+            .cardDesc {
+                font-size: 16px;
+                color: $text-gray;
+                line-height: 1.7;
+                margin: 0;
+            }
+        }
+    }
+
+    .dataWrap {
+        margin: 0 auto;
+        padding: 60px 32px;
+        display: flex;
+        gap: 18px;
+
+        .dataItem {
+            flex: 1;
+            background-color: $light-bg;
+            padding: 21px 30px;
+
+            .numText {
+                font-size: 44px;
+                font-weight: 700;
+                color: $primary-blue;
+                margin-bottom: 2px;
+            }
+
+            .iconBox {
+                width: 43px;
+                height: 43px;
+                background-color: $primary-blue;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                margin-bottom: 12px;
+            }
+
+            .numText {
+                font-size: 48px;
+                font-weight: 700;
+                color: $primary-blue;
+                margin-bottom: 0px;
+            }
+
+            .descText {
+                font-size: 24px;
+                color: $text-dark;
+                font-weight: 500;
+            }
+        }
+
+    }
+
+    .growthWrap {
+        padding: 0px 32px 0px 32px;
+        margin-top: 10px;
+
+        .growthHead {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 32px;
+            flex-direction: column;
+            margin-bottom: 0px;
+            gap:0px;
+            .headLeft {
+                .mainTitle {
+                    font-size: 48px;
+                    line-height: 1.2;
+                    margin: 0;
+                    color: $text-dark;
+
+                    .blueText {
+                        color: $primary-blue;
+                    }
+                }
+            }
+
+            .headRight {
+                max-width: 550px;
+
+                .descTip {
+                    font-size: 16px;
+                    color: $text-gray;
+                    line-height: 1.6;
+                }
+            }
+        }
+
+        .yearSwiperBox {
+            width: 100%;
+
+            .yearSwiper {
+                padding-bottom: 20px;
+                cursor: grab;
+
+                &:active {
+                    cursor: grabbing;
+                }
+            }
+
+            // 强制每张slide固定宽度320px
+            .swiper-slide {
+                width: 320px !important;
+
+            }
+        }
+
+        .yearCardActive {
+            width: 320px;
+            background-color: $primary-blue;
+            color: #ffffff;
+            border-right: 1px solid $light-gray;
+            height: 397px;
+
+            .yearTop {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 37px 33px 0px 33px;
+
+                .yearNum {
+                    font-size: 64px;
+                    font-weight: 300;
+                    opacity: 0.7;
+                }
+
+                .latestTag {
+                    background: rgba(255, 255, 255, 0.25);
+                    padding: 4px 10px;
+                    border-radius: 4px;
+                    font-size: 12px;
+                }
+            }
+
+            .yearLine {
+                width: 40px;
+                height: 3px;
+                background: #fff;
+                margin: 12px 0px 20px 33px;
+            }
+
+            .yearList {
+                list-style: none;
+                padding: 0px 33px;
+                margin: 0;
+
+                li {
+                    font-size: 15px;
+                    line-height: 1.6;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+
+        .yearCardNormal {
+            width: 320px;
+            background-color: #ffffff;
+            color: $text-gray;
+            border-right: 1px solid $light-gray;
+            height: 397px;
+            padding: 0px 32px;
+
+            .yearTop {
+                .yearNum {
+                    font-size: 64px;
+                    font-weight: 300;
+                    opacity: 0.3;
+                }
+            }
+
+            .yearLine {
+                width: 40px;
+                height: 3px;
+                background: $primary-blue;
+                margin: 12px 0 20px;
+            }
+
+            .yearList {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    font-size: 15px;
+                    line-height: 1.6;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+
+        .yearTabWrap {
+            display: flex;
+
+            .yearTabItem {
+                flex: 1;
+                text-align: center;
+                padding: 16px 0;
+                font-size: 16px;
+                color: $text-gray;
+                cursor: pointer;
+                transition: color 0.2s;
+
+                &:hover {
+                    color: $primary-blue;
+                }
+            }
+
+            .yearTabActive {
+                flex: 1;
+                text-align: center;
+                padding: 16px 0;
+                font-size: 16px;
+                color: $primary-blue;
+                font-weight: 500;
+                cursor: pointer;
+            }
+        }
+
+        .scrollTip {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+
+    .businessWrap {
+        padding: 0px 32px 0px 32px;
+        margin-top: 0px;
+
+        .businessHead {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+
+            .mainTitle {
+                font-size: 56px;
+                color: $text-dark;
+                margin: 0;
+                font-weight: 600;
+            }
+
+            .viewAllBtn {
+                border: 1px solid $border-normal;
+                border-radius: 50px;
+                cursor: pointer;
+                background: #fff;
+                margin-left: 16px;
+                height: 58px;
+                line-height: 58px;
+                width: 295px;
+                font-size: 24px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                text-align: center;
+                color: #377ded;
+            }
+        }
+
+        .subDesc {
+            color: #5c5e6b;
+            font-size: 25px;
+            margin-bottom: 32px;
+        }
+
+        .cardContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            .businessCard {
+                width: 467px;
+                height: 571px;
+                border-radius: 33.6px;
+                box-shadow: 0 4.2px 16.8px 0 rgba(0, 0, 0, 0.04);
+                border: solid 4.2px #dbeafe;
+                background-color: #fff;
+                position: relative;
+
+                /* hover：上移4px + 加深阴影 */
+                &:hover {
+                    transform: translateY(-4px);
+                    transition: transform 0.25s, box-shadow 0.25s;
+                    box-shadow: 0 4.2px 16.8px 0 rgba(0, 0, 0, 0.04), 0 4px 4px 0 rgba(55, 125, 237, 0.25);
+                    border: solid 4.2px #377ded;
+                }
+
+                .businessCard_item {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 71px 60px 0px 60px;
+                }
+
+                .cardTag_content {
+                    padding: 71px 60px 0px 60px;
+                }
+
+                .cardTag {
+                    height: 56.7px;
+                    flex-grow: 0;
+                    padding: 0px 18.9px 0px 27.4px;
+                    border-radius: 35211120px;
+                    border: solid 2.1px #bfdbfe;
+                    background-color: #eff6ff;
+                    font-family: Inter;
+                    font-size: 23.1px;
+                    font-weight: 500;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 56.7px;
+                    letter-spacing: 0.92px;
+                    text-align: center;
+                    color: #377ded;
+                }
+
+                .iconBox {
+                    width: 117.5px;
+                    height: 117.5px;
+                    background: $light-blue-bg;
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 24px;
+                    color: $primary-blue;
+                    margin-bottom: 20px;
+                }
+
+                .cardTitle {
+                    font-size: 32px;
+                    color: #101828;
+                    margin-top: 43px;
+                    font-weight: 600;
+                    padding-left: 71px;
+                }
+
+                .cardText {
+                    font-size: 20px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    letter-spacing: 0.8px;
+                    color: #5c5e6b;
+
+                }
+
+                .exploreLink {
+                    color: #377ded;
+                    font-size: 36.3px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    padding-left: 71px;
+                    position: absolute;
+                    bottom: 34px;
+                }
+
+                &:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 8px 26px rgba(55, 126, 237, 0.15);
+
+                    .exploreLink {
+                        color: $primary-blue;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    .serviceWrap {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        border-bottom: solid 1.7px #e8e8e8;
+
+        .serviceItem {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 37px 19px;
+            border-right: 1px solid $border-color;
+
+            &:last-child {
+                border-right: none;
+            }
+
+            // 圆角浅蓝色图标容器
+            .iconBox {
+                width: 66px;
+                height: 66px;
+                flex-shrink: 0;
+                background-color: $light-blue-bg;
+                border-radius: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $primary-blue;
+            }
+
+            .textBox {
+                font-size: 22px;
+                font-weight: 600;
+                color: $text-color;
+                white-space: pre-line;
+            }
+        }
+    }
+
+    .bannerBg {
+        width: 100%;
+        height: 626px;
+        background-image: url('../../assets/home3.png');
+        background-size: cover;
+        background-position: right center;
+        background-repeat: no-repeat;
+        position: relative;
+
+        // 左侧白色渐变遮罩，保证文字清晰
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -1px;
+            width: 62%;
+            height: 628px;
+            background: linear-gradient(90deg, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .bannerContent {
+            position: relative;
+            z-index: 2;
+            padding: 50px 10px 100px 50px;
+            max-width: 650px;
+
+            .tagTip {
+                display: inline-block;
+                padding: 6px 16px;
+                background: $lightBg;
+                border: 1px solid $borderColor;
+                border-radius: 9999px;
+                font-size: 13px;
+                color: $primaryColor;
+                letter-spacing: 0.5px;
+                margin-bottom: 24px;
+            }
+
+            .mainTitle {
+                font-size: clamp(32px, 4vw, 52px);
+                font-weight: 900;
+                color: $textDark;
+                line-height: 1.2;
+                margin: 0 0 20px;
+            }
+
+            .descText {
+                font-size: 16px;
+                color: $textGray;
+                line-height: 1.6;
+                margin-bottom: 32px;
+            }
+
+            .btnGroup {
+                display: flex;
+                gap: 16px;
+
+                .btnPrimary {
+                    padding: 12px 26px;
+                    background: $primaryColor;
+                    color: #fff;
+                    border: none;
+                    border-radius: 6px;
+                    font-size: 15px;
+                    cursor: pointer;
+                }
+
+                .btnOutline {
+                    padding: 12px 26px;
+                    background: transparent;
+                    color: $primaryColor;
+                    border: 1px solid $primaryColor;
+                    border-radius: 6px;
+                    font-size: 15px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .clientLogoContainer {
+        padding: 0px 32px 0px 32px;
+        margin-top: 105px;
+
+        .titleBox {
+            display: flex;
+            align-items: flex-end;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .mainTitle {
+            font-size: 56px;
+            font-weight: 700;
+            color: #222222;
+            margin: 0;
+        }
+
+        .blueLine {
+            width: 72px;
+            height: 4px;
+            background-color: #0088ff;
+        }
+
+        .descText {
+            font-size: 18px;
+            color: #666666;
+            margin: 0;
+        }
+
+        .clientDescTxt {
+            margin-top: 49px;
+            font-family: SofiaPro;
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+            margin-bottom: 24px;
+        }
+
+        .titleBlueLine {
+            display: inline-block;
+            width: 64px;
+            height: 3px;
+            margin: 43px 0 18px 16px;
+            background-color: #377ded;
+        }
+
+        .logoSwiperWrap {
+            width: 100%;
+        }
+
+        .brandSwiper {
+            width: 100%;
+        }
+
+        /* 网格布局：4列，自动换行2行 */
+        .brandGridBox {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 7px;
+            width: 100%;
+        }
+
+        .brandSlideWrap {
+            width: 100%;
+        }
+
+        .brandLogoBox {
+            border: 1px solid #eee;
+            height: 113px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 234px;
+
+            .logoImg {
+                width: 100%;
+                height: 100%;
+                // 等比例铺满盒子不变形，超出部分裁剪
+                object-fit: contain;
+
+            }
+        }
+
+        /* 分页指示器样式 */
+        .pageIndicatorWrap {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .pageNormalLine {
+            width: 64px;
+            height: 3px;
+            background: #ddd;
+            cursor: pointer;
+        }
+
+        .pageActiveLine {
+            width: 64px;
+            height: 3px;
+            background: #0099ff;
+            cursor: pointer;
+        }
     }
 }
