@@ -103,6 +103,26 @@ const Home = () => {
     const swiperRef = useRef(null)
     const wrapRef = useRef(null)
     const location = useLocation()
+
+    // 控制侧边菜单显示隐藏
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    // 判断是否移动端：宽度≤414px
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    // 监听窗口尺寸变化
+    useEffect(() => {
+        const handleResize = () => {
+            const mobile = window.innerWidth <= 768;
+            setIsMobile(mobile);
+            // 切大屏时自动关闭侧边菜单
+            if (!mobile) setIsMenuOpen(false);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+
     // 监听模块进入可视区域，只触发一次动画
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -129,6 +149,11 @@ const Home = () => {
         { title: 'Business Segments', path: '/business-segments' },
         { title: 'Contact', path: '/contact' }
     ]
+
+    // 打开侧边菜单
+    const openMenu = () => setIsMenuOpen(true);
+    // 关闭侧边菜单
+    const closeMenu = () => setIsMenuOpen(false);
 
     // 滑动切换时更新激活下标
     const handleSlideChange = (swiper) => {
@@ -166,25 +191,57 @@ const Home = () => {
                     <span className={Styles.headerLeft_icon}></span>
                     <Home2 />
                 </div>
-                <div className={Styles.headerRight}>
-                    {
-                        herderList.map((item, index) => {
-                            return (
-                                <Link
-                                    key={index}
-                                    to={item.path}
-                                    className={
-                                        location.pathname === item.path
-                                            ? `${Styles.headerRight_item} ${Styles.headerActive}`
-                                            : Styles.headerRight_item
-                                    }
-                                >
-                                    {item.title}
-                                </Link>
-                            )
-                        })
-                    }
-                </div>
+                {!isMobile && (
+                    <div className={Styles.headerRight}>
+                        {
+                            herderList.map((item, index) => {
+                                return (
+                                    <Link
+                                        key={index}
+                                        to={item.path}
+                                        className={
+                                            location.pathname === item.path
+                                                ? `${Styles.headerRight_item} ${Styles.headerActive}`
+                                                : Styles.headerRight_item
+                                        }
+                                    >
+                                        {item.title}
+                                    </Link>
+                                )
+                            })
+                        }
+                    </div>
+                )}
+                {isMobile && (
+                    <button className={Styles.hamburgerBtn} onClick={openMenu}>
+                        ≡
+                    </button>
+                )}
+                {/* 右侧侧边抽屉菜单 */}
+                {isMenuOpen && (
+                    <div className={Styles.menuOverlay} onClick={closeMenu}>
+                        <div
+                            className={Styles.drawerWrap}
+                            onClick={(e) => e.stopPropagation()} // 阻止点击菜单内部关闭
+                        >
+                            {/* 抽屉头部：Logo + 关闭按钮 */}
+                            <div className={Styles.drawerHeader}>
+                                <div className={Styles.logoWrap}>
+                                    <Home1 />
+                                    <span className={Styles.headerLeft_icon}></span>
+                                    <Home2 />
+                                </div>
+                                <button className={Styles.closeBtn} onClick={closeMenu}>×</button>
+                            </div>
+                            {/* 侧边导航菜单 */}
+                            <nav className={Styles.mobileNav}>
+                                <a href="/home" onClick={closeMenu}>Home</a>
+                                <a href="/business-segments" onClick={closeMenu}>Business Segments</a>
+                                <a href="/contact" onClick={closeMenu}>Contact</a>
+                            </nav>
+                        </div>
+                    </div>
+                )}
             </div>
             <div className={Styles.bannerBg}>
                 <div className={Styles.bannerContent}>
@@ -486,30 +543,69 @@ const Home = () => {
                 </h2>
 
                 {/* Vision卡片 */}
-                <div className={Styles.vmCard}>
-                    <div className={Styles.cardHeader}>
-                        <div className={Styles.iconBox}>
-                            <Vision1 />
+                {
+                    isMobile ? (
+                        <div className={Styles.vmCard}>
+                            <div className={Styles.cardHeader}>
+                                <div className={Styles.iconBox}>
+                                    <Vision1 />
+                                </div>
+                            </div>
+                            <div className={Styles.vmCard_text}>
+                                <div className={Styles.cardTitle}>Vision</div>
+                                <div className={Styles.cardDesc}>
+                                    To build a global expressway for seamless talent connectivity and mutual growth.
+                                </div>
+                            </div>
+
                         </div>
-                        <h3 className={Styles.cardTitle}>Vision</h3>
-                    </div>
-                    <p className={Styles.cardDesc}>
-                        To build a global expressway for seamless talent connectivity and mutual growth.
-                    </p>
-                </div>
+                    ) : (
+                        <div className={Styles.vmCard}>
+                            <div className={Styles.cardHeader}>
+                                <div className={Styles.iconBox}>
+                                    <Vision1 />
+                                </div>
+                                <h3 className={Styles.cardTitle}>Vision</h3>
+                            </div>
+                            <p className={Styles.cardDesc}>
+                                To build a global expressway for seamless talent connectivity and mutual growth.
+                            </p>
+                        </div>
+                    )
+                }
 
                 {/* Mission卡片 */}
-                <div className={Styles.vmCard}>
-                    <div className={Styles.cardHeader}>
-                        <div className={Styles.iconBox}>
-                            <Vision2 />
+                {
+                    isMobile ? (
+                        <div className={Styles.vmCard}>
+                            <div className={Styles.cardHeader}>
+                                <div className={Styles.iconBox}>
+                                    <Vision2 />
+                                </div>
+                            </div>
+                            <div className={Styles.vmCard_text}>
+                                <div className={Styles.cardTitle}>Mission</div>
+                                <div className={Styles.cardDesc}>
+                                We are committed to fostering a workplace that embraces diversity, equity, and inclusion. We believe that diverse perspectives drive innovation and lead to better business outcomes. Our mission is to create an environment where every individual feels valued, respected, and empowered to contribute their unique talents to collective success. We strive to create equal opportunities for professional growth and development for all, irrespective of gender, race, ethnicity, age, sexual orientation, disability, or any other demographic characteristic.
+                                </div>
+                            </div>
+
                         </div>
-                        <h3 className={Styles.cardTitle}>Mission</h3>
-                    </div>
-                    <p className={Styles.cardDesc}>
-                        We are committed to fostering a workplace that embraces diversity, equity, and inclusion. We believe that diverse perspectives drive innovation and lead to better business outcomes. Our mission is to create an environment where every individual feels valued, respected, and empowered to contribute their unique talents to collective success. We strive to create equal opportunities for professional growth and development for all, irrespective of gender, race, ethnicity, age, sexual orientation, disability, or any other demographic characteristic.
-                    </p>
-                </div>
+                    ) : (
+                        <div className={Styles.vmCard}>
+                            <div className={Styles.cardHeader}>
+                                <div className={Styles.iconBox}>
+                                    <Vision2 />
+                                </div>
+                                <h3 className={Styles.cardTitle}>Mission</h3>
+                            </div>
+                            <p className={Styles.cardDesc}>
+                                We are committed to fostering a workplace that embraces diversity, equity, and inclusion. We believe that diverse perspectives drive innovation and lead to better business outcomes. Our mission is to create an environment where every individual feels valued, respected, and empowered to contribute their unique talents to collective success. We strive to create equal opportunities for professional growth and development for all, irrespective of gender, race, ethnicity, age, sexual orientation, disability, or any other demographic characteristic.
+                            </p>
+                        </div>
+                    )
+                }
+
             </div>
 
             {/* Business Segments */}

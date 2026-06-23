@@ -174,7 +174,6 @@ $border-color: #e6edff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 42px;
             color: $primary-blue;
         }
 
@@ -832,8 +831,7 @@ $text-gray: #555555;
     }
 
     .section {
-        padding: 240px 32px 60px 32px;
-        display: grid
+        padding: 104px 120px 0px 120px;
     }
 
     .growthWrap,
@@ -1227,12 +1225,8 @@ $text-gray: #555555;
     }
 
     .section {
-        padding: 104px 32px 60px 32px;
-        gap: 0px;
-
-        .sectionRight {
-            margin-top: 12px;
-        }
+        display: grid;
+        padding: 104px 32px 80px 32px;
     }
 
 
@@ -1348,7 +1342,8 @@ $text-gray: #555555;
             margin-bottom: 32px;
             flex-direction: column;
             margin-bottom: 0px;
-            gap:0px;
+            gap: 0px;
+
             .headLeft {
                 .mainTitle {
                     font-size: 48px;
@@ -1885,6 +1880,627 @@ $text-gray: #555555;
             height: 3px;
             background: #0099ff;
             cursor: pointer;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .growthWrap {
+        padding: 0px 23px 0px 23px;
+        margin-top: 50px;
+
+    }
+
+    .vmWrap {
+        padding-left: 23px;
+        padding-right: 23px;
+        padding-top: 52px;
+
+        .mainTitle {
+            font-size: 56px;
+            margin: 0 0 32px;
+            color: $text-dark;
+
+            .blueText {
+                color: $primary-blue;
+            }
+        }
+
+        .vmCard {
+            border: 1px solid $border-color;
+            border-radius: 6px;
+            padding: 48px;
+            margin-bottom: 20px;
+            display: flex;
+
+            .cardHeader {
+                display: flex;
+                align-items: center;
+                margin-bottom: 16px;
+                flex-direction: column;
+                margin-right: 48px;
+
+                .iconBox {
+                    width: 80px;
+                    height: 80px;
+                    background-color: $light-blue-bg;
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 24px;
+                    color: $primary-blue;
+                }
+            }
+
+            .vmCard_text {
+                .cardTitle {
+                    font-size: 32px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    letter-spacing: 0.32px;
+                    color: #333;
+                }
+
+                .cardDesc {
+                    font-size: 20px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    letter-spacing: 0.8px;
+                    color: #5c5e6b;
+                    margin-top: 24px;
+                }
+            }
+        }
+    }
+
+    .section {
+        padding: 184px 23px 0px 23px;
+    }
+
+    .bannerBg {
+        width: 100%;
+        height: 626px;
+        background-image: url('../../assets/home3.png');
+        background-size: cover;
+        background-position: right center;
+        background-repeat: no-repeat;
+        position: relative;
+
+        // 左侧白色渐变遮罩，保证文字清晰
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -1px;
+            width: 62%;
+            height: 628px;
+            background: linear-gradient(90deg, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .bannerContent {
+            position: relative;
+            z-index: 2;
+            padding: 50px 10px 100px 50px;
+            max-width: 529x;
+
+        }
+    }
+
+    .serviceWrap {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        border-bottom: solid 1.7px #e8e8e8;
+
+        .serviceItem {
+            display: flex;
+            align-items: center;
+            padding: 22px 15px;
+            border-right: 1px solid $border-color;
+
+            &:last-child {
+                border-right: none;
+            }
+
+            .iconBox {
+                width: 51px;
+                height: 51px;
+                flex-shrink: 0;
+                background-color: $light-blue-bg;
+                border-radius: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 42px;
+                color: $primary-blue;
+                margin-right: 12px;
+            }
+
+            .textBox {
+                font-size: 17.6px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.18px;
+                color: #101828;
+            }
+
+        }
+    }
+
+    .businessWrap {
+        padding: 0px 23px 0px 23px;
+        margin-top: 170px;
+
+        .businessHead {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 22px;
+            align-items: flex-start;
+
+            .mainTitle {
+                font-size: 56px;
+                color: $text-dark;
+                margin: 0;
+                font-weight: 600;
+            }
+
+            .viewAllBtn {
+                border: 1px solid $border-normal;
+                border-radius: 50px;
+                cursor: pointer;
+                background: #fff;
+                height: 58px;
+                line-height: 58px;
+                width: 295px;
+                font-size: 24px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                text-align: center;
+                color: #377ded;
+                margin-left: 0px;
+                margin-top: 22px;
+            }
+        }
+
+        .subDesc {
+            color: #5c5e6b;
+            font-size: 25px;
+            margin-bottom: 85px;
+        }
+
+        .cardContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+
+            .businessCard {
+                width: 346px;
+                height: 760px;
+                border-radius: 33.6px;
+                box-shadow: 0 4.2px 16.8px 0 rgba(0, 0, 0, 0.04);
+                border: solid 4.2px #dbeafe;
+                background-color: #fff;
+
+                /* hover：上移4px + 加深阴影 */
+                &:hover {
+                    transform: translateY(-4px);
+                    transition: transform 0.25s, box-shadow 0.25s;
+                    box-shadow: 0 4.2px 16.8px 0 rgba(0, 0, 0, 0.04), 0 4px 4px 0 rgba(55, 125, 237, 0.25);
+                    border: solid 4.2px #377ded;
+                }
+
+                .businessCard_item {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    padding: 51px 71px 0px 51px;
+                }
+
+                .cardTag_content {
+                    padding: 70px 70px 0px 70px;
+                }
+
+                .cardTag {
+                    width: 178px;
+                    height: 56.7px;
+                    flex-grow: 0;
+                    padding: 0px;
+                    border-radius: 35211120px;
+                    border: solid 2.1px #bfdbfe;
+                    background-color: #eff6ff;
+                    font-family: Inter;
+                    font-size: 23.1px;
+                    font-weight: 500;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 56.7px;
+                    letter-spacing: 0.92px;
+                    text-align: center;
+                    color: #377ded;
+                }
+
+                .iconBox {
+                    width: 117.5px;
+                    height: 117.5px;
+                    background: $light-blue-bg;
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 24px;
+                    color: $primary-blue;
+                    margin-bottom: 20px;
+                }
+
+                .cardTitle {
+                    font-size: 32px;
+                    color: #101828;
+                    margin-top: 43px;
+                    font-weight: 600;
+                    padding-left: 51px;
+                }
+
+                .cardText {
+                    font-size: 20px;
+                    color: $text-gray;
+                    padding-left: 51px;
+                    margin-bottom: 0px;
+                    padding-left: 40px;
+                }
+
+                .exploreLink {
+                    color: #377ded;
+                    font-size: 36.3px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    padding-left: 51px;
+                }
+
+                &:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 8px 26px rgba(55, 126, 237, 0.15);
+
+                    .exploreLink {
+                        color: $primary-blue;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    .footerWrap {
+        background-color: #333333;
+        color: #cccccc;
+        padding: 60px 20px 40px;
+        margin-top: 80px;
+
+        .footerContent {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footerTipLabel {
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.8px;
+            color: #999;
+            margin: 0 0 16px;
+        }
+
+        .footerHeadQuarter {
+            margin-bottom: 40px;
+
+            .footerAddress,
+            .footerContact {
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #fff;
+                margin: 8px 0;
+            }
+        }
+
+        .footerOfficeWrap {
+            margin-bottom: 40px;
+
+            .officeGrid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 14px 8px;
+                width: 100%;
+                box-sizing: border-box;
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #f8f8f8;
+            }
+        }
+
+        .footerCopyright {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 16px;
+
+            .footerLogo {
+                color: #ffffff;
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 32px;
+    }
+
+    .logoWrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logoMain {
+        font-size: 28px;
+        font-weight: 700;
+        color: #111;
+    }
+
+    .logoSub {
+        font-size: 28px;
+        font-weight: 600;
+        color: #2496ed;
+    }
+
+    /* 桌面端导航 */
+    .desktopNav {
+        display: flex;
+        gap: 40px;
+    }
+
+    .desktopNav a {
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    /* 移动端汉堡按钮 414px以下显示 */
+    .hamburgerBtn {
+        display: none;
+        border: none;
+        background: transparent;
+        font-size: 28px;
+        cursor: pointer;
+        padding: 4px 8px;
+    }
+
+    /* 遮罩层 */
+    .menuOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 999;
+    }
+
+    /* 右侧抽屉容器 */
+    .drawerWrap {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        background: #fff;
+        padding: 24px;
+        box-sizing: border-box;
+    }
+
+    /* 抽屉头部 */
+    .drawerHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .closeBtn {
+        border: none;
+        background: transparent;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* 移动端侧边导航 */
+    .mobileNav {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin-top: 40px;
+    }
+
+    .mobileNav a {
+        font-size: 18px;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .dataWrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        padding: 72px 56px 0px 76px;
+
+        .dataItem {
+            background-color: #f6f9ff;
+            border-radius: 8px;
+            padding: 32px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-sizing: border-box;
+            width: 286px;
+            height: 298px;
+
+            .iconBox {
+                width: 52px;
+                height: 52px;
+                background-color: #3684f0;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .numText {
+                font-size: 48px;
+                font-weight: 700;
+                color: #3684f0;
+                line-height: 1.1;
+            }
+
+            .descText {
+                font-size: 20px;
+                color: #222222;
+                line-height: 1.4;
+            }
+        }
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .hamburgerBtn {
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 414px) {
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 32px;
+    }
+
+    .logoWrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logoMain {
+        font-size: 28px;
+        font-weight: 700;
+        color: #111;
+    }
+
+    .logoSub {
+        font-size: 28px;
+        font-weight: 600;
+        color: #2496ed;
+    }
+
+    /* 桌面端导航 */
+    .desktopNav {
+        display: flex;
+        gap: 40px;
+    }
+
+    .desktopNav a {
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    /* 移动端汉堡按钮 414px以下显示 */
+    .hamburgerBtn {
+        display: none;
+        border: none;
+        background: transparent;
+        font-size: 28px;
+        cursor: pointer;
+        padding: 4px 8px;
+    }
+
+    /* 遮罩层 */
+    .menuOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 999;
+    }
+
+    /* 右侧抽屉容器 */
+    .drawerWrap {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        background: #fff;
+        padding: 24px;
+        box-sizing: border-box;
+    }
+
+    /* 抽屉头部 */
+    .drawerHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .closeBtn {
+        border: none;
+        background: transparent;
+        font-size: 32px;
+        cursor: pointer;
+    }
+
+    /* 移动端侧边导航 */
+    .mobileNav {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin-top: 40px;
+    }
+
+    .mobileNav a {
+        font-size: 18px;
+        color: #333;
+        text-decoration: none;
+    }
+
+    /* 媒体查询：宽度≤414px 移动端样式 */
+    @media screen and (max-width: 768px) {
+        .hamburgerBtn {
+            display: block;
         }
     }
 }
