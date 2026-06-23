@@ -106,7 +106,7 @@ const Home = () => {
 
     // 控制侧边菜单显示隐藏
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    // 判断是否移动端：宽度≤414px
+    // 判断是否移动端：宽度≤768
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     // 监听窗口尺寸变化

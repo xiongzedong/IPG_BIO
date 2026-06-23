@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Styles from './index.module.scss'
 import { ReactComponent as Home1 } from '../../assets/home1.svg'
@@ -18,13 +18,6 @@ import { ReactComponent as Adv8 } from '../../assets/adv8.svg'
 import { ReactComponent as Adv9 } from '../../assets/adv9.svg'
 import { ReactComponent as Count1 } from '../../assets/count1.svg'
 
-// 四大解决方案数据
-const solutionList = [
-    { id: 1, title: 'Executive Search' },
-    { id: 2, title: 'Flexible Staffing' },
-    { id: 3, title: 'Global HR Solutions' },
-    { id: 4, title: 'Business Process Outsourcing' },
-]
 
 // Flexible Staffing 优势数据
 const flexibleAdvantageList = [
@@ -107,6 +100,21 @@ const bpoAdvantageList = [
         icon: <Adv6 />,
         title: 'Consistent Quality Assurance',
         desc: 'Rigorous QA processes to maintain high standards of service delivery'
+    },
+    {
+        icon: <Adv7 />,
+        title: 'Comprehensive Skills Training',
+        desc: 'Ongoing training programs to keep your team sharp and effective'
+    },
+    {
+        icon: <Adv8 />,
+        title: 'Customer Knowledge Base Development',
+        desc: 'Structured knowledge base development for seamless customer support'
+    },
+    {
+        icon: <Adv9 />,
+        title: 'Specialized & Customizable Workflow Management',
+        desc: 'Customizable workflow management tailored to your operational needs'
     }
 ]
 const bpoAdvantageListTo = [
@@ -141,13 +149,34 @@ const herderList = [
 ]
 const BusinessSegments = () => {
     const location = useLocation()
+    // 控制侧边菜单显示隐藏
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    // 判断是否移动端：宽度≤768
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
     const navList = [
         { title: 'Home', path: '/home' },
         { title: 'Business Segments', path: '/business-segments' },
         { title: 'Contact', path: '/contact' }
     ]
+    // 监听窗口尺寸变化
+    useEffect(() => {
+        const handleResize = () => {
+            const mobile = window.innerWidth <= 768;
+            setIsMobile(mobile);
+            // 切大屏时自动关闭侧边菜单
+            if (!mobile) setIsMenuOpen(false);
+        };
 
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // 打开侧边菜单
+    const openMenu = () => setIsMenuOpen(true);
+    // 关闭侧边菜单
+    const closeMenu = () => setIsMenuOpen(false);
     return (
+
         <div className={Styles.wrap}>
             {/* 头部导航 */}
             <div className={Styles.header}>
@@ -156,25 +185,57 @@ const BusinessSegments = () => {
                     <span className={Styles.headerLeft_icon}></span>
                     <Home2 />
                 </div>
-                <div className={Styles.headerRight}>
-                    {
-                        herderList.map((item, index) => {
-                            return (
-                                <Link
-                                    key={index}
-                                    to={item.path}
-                                    className={
-                                        location.pathname === item.path
-                                            ? `${Styles.headerRight_item} ${Styles.headerActive}`
-                                            : Styles.headerRight_item
-                                    }
-                                >
-                                    {item.title}
-                                </Link>
-                            )
-                        })
-                    }
-                </div>
+                {!isMobile && (
+                    <div className={Styles.headerRight}>
+                        {
+                            herderList.map((item, index) => {
+                                return (
+                                    <Link
+                                        key={index}
+                                        to={item.path}
+                                        className={
+                                            location.pathname === item.path
+                                                ? `${Styles.headerRight_item} ${Styles.headerActive}`
+                                                : Styles.headerRight_item
+                                        }
+                                    >
+                                        {item.title}
+                                    </Link>
+                                )
+                            })
+                        }
+                    </div>
+                )}
+                {isMobile && (
+                    <button className={Styles.hamburgerBtn} onClick={openMenu}>
+                        ≡
+                    </button>
+                )}
+                {/* 右侧侧边抽屉菜单 */}
+                {isMenuOpen && (
+                    <div className={Styles.menuOverlay} onClick={closeMenu}>
+                        <div
+                            className={Styles.drawerWrap}
+                            onClick={(e) => e.stopPropagation()} // 阻止点击菜单内部关闭
+                        >
+                            {/* 抽屉头部：Logo + 关闭按钮 */}
+                            <div className={Styles.drawerHeader}>
+                                <div className={Styles.logoWrap}>
+                                    <Home1 />
+                                    <span className={Styles.headerLeft_icon}></span>
+                                    <Home2 />
+                                </div>
+                                <button className={Styles.closeBtn} onClick={closeMenu}>×</button>
+                            </div>
+                            {/* 侧边导航菜单 */}
+                            <nav className={Styles.mobileNav}>
+                                <a href="/home" onClick={closeMenu}>Home</a>
+                                <a href="/business-segments" onClick={closeMenu}>Business Segments</a>
+                                <a href="/contact" onClick={closeMenu}>Contact</a>
+                            </nav>
+                        </div>
+                    </div>
+                )}
             </div>
 
             {/* 顶部Banner区域 */}
@@ -189,9 +250,9 @@ const BusinessSegments = () => {
                         <span className={Styles.blueTitle}>Four Solutions</span><br />
                         Unlimited Global Reach
                     </h1>
-                    <p className={Styles.descText}>
+                    <div className={Styles.descText}>
                         From placing your next C-suite leader to managing distributed teams across continents – IntelliPro delivers integrated talent intelligence built for organizations that think globally and hire with precision.
-                    </p>
+                    </div>
 
                     {/* 四个解决方案按钮 */}
                     <div className={Styles.solutionBtnWrap}>
@@ -203,11 +264,11 @@ const BusinessSegments = () => {
                             <div>02</div>
                             <div>Flexible Staffing</div>
                         </div>
-                        <div className={Styles.btnNormal}>
+                        <div className={Styles.btnNormalTo}>
                             <div>03</div>
                             <div>Global HR Solutions</div>
                         </div>
-                        <div className={Styles.btnNormal}>
+                        <div className={Styles.btnNormalTo}>
                             <div>04</div>
                             <div>
                                 <div> Business Process</div>
@@ -233,14 +294,18 @@ const BusinessSegments = () => {
                         </div>
                     </div>
                 </div>
+                {
+                    !isMobile && (
+                        <div className={Styles.bannerRight}>
+                            <div className={Styles.imgTop}><img src={Business5} className={Styles.logoImg} /></div>
+                            <div className={Styles.imgBottomWrap}>
+                                <div className={Styles.imgBottomLeft}><img src={Business6} className={Styles.logoImg} /></div>
+                                <div className={Styles.imgBottomRight}><img src={Business7} className={Styles.logoImg} /></div>
+                            </div>
+                        </div>
+                    )
+                }
 
-                <div className={Styles.bannerRight}>
-                    <div className={Styles.imgTop}><img src={Business5} className={Styles.logoImg} /></div>
-                    <div className={Styles.imgBottomWrap}>
-                        <div className={Styles.imgBottomLeft}><img src={Business6} className={Styles.logoImg} /></div>
-                        <div className={Styles.imgBottomRight}><img src={Business7} className={Styles.logoImg} /></div>
-                    </div>
-                </div>
             </div>
 
             {/* Executive Search */}
@@ -274,6 +339,7 @@ const BusinessSegments = () => {
 
 
             </div>
+
             {/* Advantages */}
             <div className={Styles.sectionWrapTo}>
                 <div className={Styles.advantageTitle}>
@@ -281,17 +347,24 @@ const BusinessSegments = () => {
                     <span className={Styles.advantageTitle_icon}></span>
                 </div>
                 <div className={Styles.flexibleGrid}>
-                    {flexibleAdvantageList.map((item, idx) => (
-                        <div key={idx} className={Styles.advantageCard}>
-                            <div className={Styles.iconBox}>{item.icon}</div>
-                            <div className={Styles.cardTitle}>{item.title}</div>
-                            <div className={Styles.cardDesc}>{item.desc}</div>
-                        </div>
-                    ))}
+                    {flexibleAdvantageList.map((item, idx) => {
+                        const flag = idx === 2 || idx === 3;
+                        return (
+                            <div
+                                key={idx}
+                                className={flag ? Styles.advantageCardTo : Styles.advantageCard}
+                            >
+                                <div className={Styles.iconBox}>{item.icon}</div>
+                                <div className={Styles.cardTitle}>{item.title}</div>
+                                <div className={Styles.cardDesc}>{item.desc}</div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
+
             {/* Global HR Solutions */}
-            <div className={Styles.sectionWrapTo}>
+            <div className={Styles.sectionWrapThree}>
                 <div className={Styles.sectionWrapTo_content}>
                     <div className={Styles.sectionLeft}>
                         <h2 className={Styles.sectionTitle}>
@@ -325,12 +398,12 @@ const BusinessSegments = () => {
                             <div className={Styles.cardRow}>
                                 <div className={Styles.rowLabel}>APPLICABLE SCENARIOS</div>
                                 <div className={Styles.textList}>
-                                    {item.scenarios.map((s, i) => <div style={{color:'#377ded'}} key={i}>{'>'} {s}</div>)}
+                                    {item.scenarios.map((s, i) => <div key={i}><span style={{ color: '#377ded' }}>{'>'}</span> {s}</div>)}
                                 </div>
                             </div>
                             <div className={Styles.cardRow}>
                                 <div className={Styles.rowLabel}>INTELLIPRO ROLE</div>
-                                <div className={item.active ? Styles.tagBlueTo : Styles.tagBlue}>{item.role}</div>
+                                <div className={item.active ? Styles.tagBlue : Styles.tagBlueTo}>{item.role}</div>
                             </div>
                         </div>
                     ))}
@@ -338,13 +411,13 @@ const BusinessSegments = () => {
             </div>
 
             {/* BPO */}
-            <div className={Styles.sectionWrapTo}>
-                 <div className={Styles.sectionWrapTo_content}>
+            <div className={Styles.sectionWrapFour}>
+                <div className={Styles.sectionWrapTo_content}>
                     <div className={Styles.sectionLeft}>
                         <h2 className={Styles.sectionTitle}>
                             Business Process<br />
                             <span className={Styles.blueText}>Solutions</span><br />
-                             <span className={Styles.blueText}>（BPO）</span>
+                            <span className={Styles.blueText}>（BPO）</span>
                         </h2>
                     </div>
                     <div className={Styles.sectionRight}>
@@ -353,29 +426,29 @@ const BusinessSegments = () => {
                         </div>
                     </div>
                 </div>
-               
+
                 <div className={Styles.advantageTitle}>
                     Advantages
                     <span className={Styles.advantageTitle_icon}></span>
                 </div>
                 <div className={Styles.bpoGrid}>
                     {bpoAdvantageList.map((item, idx) => (
-                        <div key={idx} className={Styles.advantageCard}>
+                        <div key={idx} className={Styles.advantageCardTo}>
                             <div className={Styles.iconBox}>{item.icon}</div>
                             <div className={Styles.cardTitle}>{item.title}</div>
                             <div className={Styles.cardDesc}>{item.desc}</div>
                         </div>
                     ))}
                 </div>
-                 <div className={Styles.bpoGrid}>
+                {/* <div className={Styles.bpoGrid}>
                     {bpoAdvantageListTo.map((item, idx) => (
-                        <div key={idx} className={Styles.advantageCard}>
+                        <div key={idx} className={Styles.advantageCardTo}>
                             <div className={Styles.iconBox}>{item.icon}</div>
                             <div className={Styles.cardTitle}>{item.title}</div>
                             <div className={Styles.cardDesc}>{item.desc}</div>
                         </div>
                     ))}
-                </div>
+                </div> */}
             </div>
 
             {/* 页脚 */}

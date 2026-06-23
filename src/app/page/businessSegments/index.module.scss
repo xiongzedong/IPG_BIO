@@ -52,10 +52,10 @@
     height: 30.8px;
     margin: 0 19.6px 0 19px;
     background-color: rgba(51, 51, 51, 0.2);
+    display: inline-block;
 }
 
 
-// Banner区域
 .bannerWrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -153,6 +153,25 @@
             letter-spacing: 0.24px;
             background-color: #fff;
         }
+
+        .btnNormalTo {
+            border: 1px solid #e5e7eb;
+            font-size: 15px;
+            width: 355.3px;
+            height: 76.1px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 19px;
+            border-radius: 22.2px;
+            font-size: 24px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.24px;
+            background-color: #fff;
+        }
     }
 
     .dataRow {
@@ -214,7 +233,6 @@
     }
 }
 
-// 通用模块
 .sectionWrap {
     padding-left: 240px;
     padding-right: 240px;
@@ -296,6 +314,224 @@
     }
 }
 
+.sectionWrapThree {
+    padding-left: 240px;
+    padding-right: 240px;
+    margin-bottom: 240px;
+
+    .sectionWrapTo_content {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 66px;
+
+        .sectionLeft {
+            width: 50%;
+        }
+
+        .sectionRight {
+            width: 50%;
+            text-align: right;
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            color: #5c5e6b;
+        }
+    }
+
+    .sectionTitle {
+        font-size: 36px;
+        line-height: 1.2;
+        margin: 0;
+
+        .blueText {
+            color: #1677ff;
+        }
+    }
+
+    .contentText {
+        font-size: 20px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.6;
+        letter-spacing: 0.8px;
+        text-align: left;
+        color: #5c5e6b;
+    }
+}
+
+.sectionWrapFour {
+    padding-left: 240px;
+    padding-right: 240px;
+    margin-bottom: 240px;
+
+    .sectionWrapTo_content {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 66px;
+
+        .sectionLeft {
+            width: 50%;
+        }
+
+        .sectionRight {
+            width: 50%;
+            text-align: right;
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            color: #5c5e6b;
+        }
+    }
+
+    .sectionTitle {
+        font-size: 36px;
+        line-height: 1.2;
+        margin: 0;
+
+        .blueText {
+            color: #1677ff;
+        }
+    }
+
+    .contentText {
+        font-size: 20px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.6;
+        letter-spacing: 0.8px;
+        text-align: left;
+        color: #5c5e6b;
+    }
+
+    .bpoGrid {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+
+        .hrCardActive {
+            width: 385px;
+            height: 729px;
+            border-radius: 21.4px;
+            box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+            border: solid 2.7px #377ded;
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        .hrCardActiveTo {
+            width: 385px;
+            height: 729px;
+            border-radius: 21.4px;
+            box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+            background-color: rgba(255, 255, 255, 0);
+            border: solid 1.3px #e0eaf8;
+        }
+
+        .cardRow {
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom: solid 1.3px rgba(0, 0, 0, 0.1);
+
+            .rowLabel {
+                font-size: 16px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.5;
+                letter-spacing: 0.96px;
+                color: #9ca3af;
+                margin-bottom: 15px;
+            }
+
+        }
+
+        .tagBlue {
+            height: 39px;
+            padding: 5.3px 16px 1.7px 16px;
+            border-radius: 22417006px;
+            background-color: rgba(55, 125, 237, 0.1);
+            font-size: 20px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            color: #377ded;
+            display: inline-block;
+        }
+
+        .tagBlueTo {
+            height: 39px;
+            padding: 5.3px 16px 1.7px 16px;
+            border-radius: 22417006px;
+            background-color: #f3f4f6;
+            font-size: 20px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            color: #4b5563;
+            display: inline-block;
+        }
+
+        .hrCardActive .cardRow:last-of-type,
+        .hrCardActiveTo .cardRow:last-of-type {
+            border-bottom: none;
+        }
+
+        .bpoGrid {
+            display: flex;
+            gap: 34px;
+            margin-bottom: 30px;
+        }
+
+        .advantageCardTo {
+            width: 380px;
+            height: 360px;
+            background-color: #f6f9fd;
+
+            .iconBox {
+                background: #f0f7ff;
+                border-radius: 8px;
+                padding: 54px 0px 37px 43px;
+
+            }
+
+            .cardTitle {
+                font-size: 24px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.33;
+                letter-spacing: 0.24px;
+                color: #333;
+                padding-left: 43px;
+            }
+
+            .cardDesc {
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #333;
+                margin-top: 15px;
+                padding-left: 43px;
+            }
+        }
+    }
+}
+
 .advantageTitle {
     font-size: 22px;
     font-weight: 600;
@@ -328,6 +564,77 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 
+    .advantageCard {
+        width: 700px;
+        height: 328px;
+        background-color: #f6f9fd;
+
+        .iconBox {
+            background: #f0f7ff;
+            border-radius: 8px;
+            padding: 54px 0px 37px 43px;
+
+        }
+
+        .cardTitle {
+            font-size: 32px;
+            font-weight: 900;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 0.24px;
+            color: #333;
+            padding-left: 43px;
+        }
+
+        .cardDesc {
+            font-size: 32px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            color: #333;
+            margin-top: 15px;
+            padding-left: 43px;
+        }
+    }
+
+    .advantageCardTo {
+        width: 700px;
+        height: 328px;
+        background-color: #f6f9fd;
+
+        .iconBox {
+            background: #f0f7ff;
+            border-radius: 8px;
+            padding: 54px 0px 37px 43px;
+
+        }
+
+        .cardTitle {
+            font-size: 32px;
+            font-weight: 900;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 0.24px;
+            color: #333;
+            padding-left: 43px;
+        }
+
+        .cardDesc {
+            font-size: 32px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            color: #333;
+            margin-top: 15px;
+            padding-left: 43px;
+        }
+    }
 }
 
 .bpoGrid {
@@ -336,41 +643,9 @@
     margin-bottom: 30px;
 }
 
-.advantageCard {
-    width: 453px;
-    height: 360px;
-    background-color: #f6f9fd;
 
-    .iconBox {
-        background: #f0f7ff;
-        border-radius: 8px;
-        padding: 54px 0px 37px 43px;
 
-    }
 
-    .cardTitle {
-        font-size: 24px;
-        font-weight: 900;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.33;
-        letter-spacing: 0.24px;
-        color: #333;
-        padding-left: 43px;
-    }
-
-    .cardDesc {
-        font-size: 20px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.6;
-        letter-spacing: 0.8px;
-        color: #333;
-        margin-top: 15px;
-        padding-left: 43px;
-    }
-}
 
 // HR三栏卡片
 .hrGrid {
@@ -398,10 +673,6 @@
     border: solid 1.3px #e0eaf8;
 }
 
-
-
-
-
 .hrCardNormal {
     width: 457px;
     height: 729px;
@@ -410,8 +681,6 @@
     border: solid 2.7px #377ded;
     background-color: rgba(255, 255, 255, 0);
 }
-
-
 
 .cardHead {
     height: 190px;
@@ -623,6 +892,2306 @@
             color: #fff;
             font-size: 24px;
             font-weight: bold;
+        }
+    }
+}
+
+
+// 响应式适配
+@media (max-width: 1440px) {
+    .headerLeft {
+        flex: 1;
+        margin-left: 120px;
+        display: flex;
+    }
+
+    // Banner区域
+    .bannerWrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+        margin-bottom: 240px;
+        box-sizing: border-box;
+
+        .bannerLeft {
+            padding-left: 120px;
+            box-sizing: border-box;
+        }
+
+        .sectionTag {
+            font-family: SofiaPro;
+            font-size: 16px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.96px;
+            text-align: left;
+            color: #377ded;
+
+            .sectionTag_icon {
+                display: inline-block;
+                width: 32px;
+                height: 1px;
+                margin: 11.5px 12px 11.5px 0;
+                background-color: #377ded;
+                position: relative;
+                top: 10px
+            }
+        }
+
+        .bigTitle {
+            font-size: 52px;
+            margin-top: 24px;
+
+            .blueTitle {
+                color: #1677ff;
+            }
+        }
+
+        .descText {
+            font-family: SofiaPro;
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+            margin-bottom: 20px;
+        }
+
+        .solutionBtnWrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 40px;
+
+            .btnActive {
+                width: 355.3px;
+                height: 76.1px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 19px;
+                border-radius: 22.2px;
+                border: solid 1.6px #377ded;
+                background-color: #377ded;
+                font-size: 24px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                color: #fff;
+            }
+
+            .btnNormal {
+                border: 1px solid #e5e7eb;
+                font-size: 15px;
+                width: 355.3px;
+                height: 76.1px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 19px;
+                border-radius: 22.2px;
+                font-size: 24px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                background-color: #fff;
+            }
+
+            .btnNormalTo {
+                border: 1px solid #e5e7eb;
+                font-size: 15px;
+                width: 355.3px;
+                height: 76.1px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 19px;
+                border-radius: 22.2px;
+                font-size: 24px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                background-color: #fff;
+            }
+        }
+
+        .dataRow {
+            display: flex;
+            gap: 30px;
+
+            .dataItem {
+                .numText {
+                    font-size: 32px;
+                    font-weight: 700;
+                    color: #1677ff;
+                    display: block;
+                }
+
+                .labelText {
+                    font-size: 14px;
+                    color: #666;
+                }
+            }
+        }
+
+        .bannerRight {
+            .imgTop {
+                width: 537px;
+                height: 407px;
+                background: #f5f7fa;
+                border-radius: 12px;
+                margin-bottom: 16px;
+                box-sizing: border-box;
+
+                .logoImg {
+                    width: 100%;
+                    height: 100%;
+                    // 等比例铺满盒子不变形，超出部分裁剪
+                    object-fit: contain;
+
+                }
+            }
+
+            .imgBottomWrap {
+                display: flex;
+                gap: 32px;
+
+                .imgBottomLeft,
+                .imgBottomRight {
+                    width: 252px;
+                    height: 210px;
+                    background: #f5f7fa;
+                    border-radius: 12px;
+
+                    .logoImg {
+                        width: 100%;
+                        height: 100%;
+                        // 等比例铺满盒子不变形，超出部分裁剪
+                        object-fit: contain;
+
+                    }
+                }
+            }
+        }
+    }
+
+    .sectionWrap {
+        padding-left: 120px;
+        padding-right: 120px;
+        display: flex;
+        margin-bottom: 176px;
+
+        .sectionLeft {
+            margin-right: 355px;
+        }
+
+        .sectionTitle {
+            font-size: 36px;
+            line-height: 1.2;
+            margin: 0;
+
+            .blueText {
+                color: #1677ff;
+            }
+        }
+
+        .contentText {
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+        }
+    }
+
+    .sectionWrapTo {
+        padding-left: 120px;
+        padding-right: 120px;
+        margin-bottom: 170px;
+
+        .advantageCard {
+            width: 586px;
+            height: 328px;
+            background-color: #f6f9fd;
+
+            .iconBox {
+                background: #f0f7ff;
+                border-radius: 8px;
+                padding: 40px 0px 40px 40px;
+                width: 64px;
+                height: 64px;
+            }
+
+            .cardTitle {
+                font-size: 24px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                color: #333;
+                padding-left: 32px;
+            }
+
+            .cardDesc {
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #333;
+                margin-top: 15px;
+                padding-left: 32px;
+            }
+        }
+
+        .advantageCardTo {
+            width: 586px;
+            height: 328px;
+            background-color: #f6f9fd;
+
+            .iconBox {
+                background: #f0f7ff;
+                border-radius: 8px;
+                padding: 40px 0px 40px 40px;
+                width: 64px;
+                height: 64px;
+            }
+
+            .cardTitle {
+                font-size: 24px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                color: #333;
+                padding-left: 32px;
+            }
+
+            .cardDesc {
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #333;
+                margin-top: 15px;
+                padding-left: 32px;
+            }
+        }
+
+        .sectionWrapTo_content {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 66px;
+
+            .sectionLeft {
+                width: 50%;
+            }
+
+            .sectionRight {
+                width: 50%;
+                text-align: right;
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #5c5e6b;
+            }
+        }
+
+        .sectionTitle {
+            font-size: 36px;
+            line-height: 1.2;
+            margin: 0;
+
+            .blueText {
+                color: #1677ff;
+            }
+        }
+
+        .contentText {
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+        }
+
+        .hrGrid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+
+            .hrCardActive {
+                width: 385px;
+                height: 729px;
+                border-radius: 21.4px;
+                box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+                border: solid 2.7px #377ded;
+                background-color: rgba(255, 255, 255, 0);
+            }
+
+            .hrCardActiveTo {
+                width: 385px;
+                height: 729px;
+                border-radius: 21.4px;
+                box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+                background-color: rgba(255, 255, 255, 0);
+                border: solid 1.3px #e0eaf8;
+            }
+
+            .cardRow {
+                padding: 14px 20px;
+                background: rgba(255, 255, 255, 0.1);
+                border-bottom: solid 1.3px rgba(0, 0, 0, 0.1);
+
+                .rowLabel {
+                    font-size: 16px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.5;
+                    letter-spacing: 0.96px;
+                    color: #9ca3af;
+                    margin-bottom: 15px;
+                }
+
+            }
+
+            .tagBlue {
+                height: 39px;
+                padding: 5.3px 16px 1.7px 16px;
+                border-radius: 22417006px;
+                background-color: rgba(55, 125, 237, 0.1);
+                font-size: 20px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #377ded;
+                display: inline-block;
+            }
+
+            .tagBlueTo {
+                height: 39px;
+                padding: 5.3px 16px 1.7px 16px;
+                border-radius: 22417006px;
+                background-color: #f3f4f6;
+                font-size: 20px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #4b5563;
+                display: inline-block;
+            }
+
+            .hrCardActive .cardRow:last-of-type,
+            .hrCardActiveTo .cardRow:last-of-type {
+                border-bottom: none;
+            }
+
+            .bpoGrid {
+                display: flex;
+                gap: 34px;
+                margin-bottom: 30px;
+            }
+
+            .advantageCardTo {
+                width: 380px;
+                height: 360px;
+                background-color: #f6f9fd;
+
+                .iconBox {
+                    background: #f0f7ff;
+                    border-radius: 8px;
+                    padding: 54px 0px 37px 43px;
+
+                }
+
+                .cardTitle {
+                    font-size: 24px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.33;
+                    letter-spacing: 0.24px;
+                    color: #333;
+                    padding-left: 43px;
+                }
+
+                .cardDesc {
+                    font-size: 20px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    letter-spacing: 0.8px;
+                    color: #333;
+                    margin-top: 15px;
+                    padding-left: 43px;
+                }
+            }
+        }
+
+    }
+
+    .footerWrap {
+        background: #333;
+        color: #ccc;
+        padding: 60px;
+        margin-top: 40px;
+
+        .footerHead {
+            margin-bottom: 30px;
+
+            .footerLabel {
+                color: #aaa;
+                margin-bottom: 12px;
+            }
+
+            p {
+                margin: 6px 0;
+                font-size: 17px;
+            }
+        }
+
+        .footerOfficeTitle {
+            color: #aaa;
+            margin-bottom: 16px;
+        }
+
+        .officeGrid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 14px 8px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.8px;
+            color: #f8f8f8;
+            margin-bottom: 149px;
+
+            span {
+                font-size: 16px;
+            }
+        }
+
+        .copyrightWrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+
+            .footerLogo {
+                color: #fff;
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .sectionWrapThree {
+        padding-left: 120px;
+        padding-right: 120px;
+        margin-bottom: 170px;
+
+        .advantageCard {
+            width: 586px;
+            height: 328px;
+            background-color: #f6f9fd;
+
+            .iconBox {
+                background: #f0f7ff;
+                border-radius: 8px;
+                padding: 40px 0px 40px 40px;
+                width: 64px;
+                height: 64px;
+            }
+
+            .cardTitle {
+                font-size: 24px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                color: #333;
+                padding-left: 32px;
+            }
+
+            .cardDesc {
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #333;
+                margin-top: 15px;
+                padding-left: 32px;
+            }
+        }
+
+        .advantageCardTo {
+            width: 586px;
+            height: 328px;
+            background-color: #f6f9fd;
+
+            .iconBox {
+                background: #f0f7ff;
+                border-radius: 8px;
+                padding: 40px 0px 40px 40px;
+                width: 64px;
+                height: 64px;
+            }
+
+            .cardTitle {
+                font-size: 24px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                color: #333;
+                padding-left: 32px;
+            }
+
+            .cardDesc {
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #333;
+                margin-top: 15px;
+                padding-left: 32px;
+            }
+        }
+
+        .sectionWrapTo_content {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 66px;
+
+            .sectionLeft {
+                width: 50%;
+            }
+
+            .sectionRight {
+                width: 50%;
+                text-align: right;
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #5c5e6b;
+            }
+        }
+
+        .sectionTitle {
+            font-size: 36px;
+            line-height: 1.2;
+            margin: 0;
+
+            .blueText {
+                color: #1677ff;
+            }
+        }
+
+        .contentText {
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+        }
+
+        .hrGrid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+
+            .hrCardActive {
+                width: 385px;
+                height: 729px;
+                border-radius: 21.4px;
+                box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+                border: solid 2.7px #377ded;
+                background-color: rgba(255, 255, 255, 0);
+            }
+
+            .hrCardActiveTo {
+                width: 385px;
+                height: 729px;
+                border-radius: 21.4px;
+                box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+                background-color: rgba(255, 255, 255, 0);
+                border: solid 1.3px #e0eaf8;
+            }
+
+            .cardRow {
+                padding: 14px 20px;
+                background: rgba(255, 255, 255, 0.1);
+                border-bottom: solid 1.3px rgba(0, 0, 0, 0.1);
+
+                .rowLabel {
+                    font-size: 16px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.5;
+                    letter-spacing: 0.96px;
+                    color: #9ca3af;
+                    margin-bottom: 15px;
+                }
+
+            }
+
+            .tagBlue {
+                height: 39px;
+                padding: 5.3px 16px 1.7px 16px;
+                border-radius: 22417006px;
+                background-color: rgba(55, 125, 237, 0.1);
+                font-size: 20px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #377ded;
+                display: inline-block;
+            }
+
+            .tagBlueTo {
+                height: 39px;
+                padding: 5.3px 16px 1.7px 16px;
+                border-radius: 22417006px;
+                background-color: #f3f4f6;
+                font-size: 20px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #4b5563;
+                display: inline-block;
+            }
+
+            .hrCardActive .cardRow:last-of-type,
+            .hrCardActiveTo .cardRow:last-of-type {
+                border-bottom: none;
+            }
+
+            .bpoGrid {
+                display: flex;
+                gap: 34px;
+                margin-bottom: 30px;
+            }
+
+            .advantageCardTo {
+                width: 380px;
+                height: 360px;
+                background-color: #f6f9fd;
+
+                .iconBox {
+                    background: #f0f7ff;
+                    border-radius: 8px;
+                    padding: 54px 0px 37px 43px;
+
+                }
+
+                .cardTitle {
+                    font-size: 24px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.33;
+                    letter-spacing: 0.24px;
+                    color: #333;
+                    padding-left: 43px;
+                }
+
+                .cardDesc {
+                    font-size: 20px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    letter-spacing: 0.8px;
+                    color: #333;
+                    margin-top: 15px;
+                    padding-left: 43px;
+                }
+            }
+        }
+
+    }
+
+    .sectionWrapFour {
+        padding-left: 120px;
+        padding-right: 120px;
+        margin-bottom: 170px;
+
+        .advantageCard {
+            width: 586px;
+            height: 328px;
+            background-color: #f6f9fd;
+
+            .iconBox {
+                background: #f0f7ff;
+                border-radius: 8px;
+                padding: 40px 0px 40px 40px;
+                width: 64px;
+                height: 64px;
+            }
+
+            .cardTitle {
+                font-size: 24px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                color: #333;
+                padding-left: 32px;
+            }
+
+            .cardDesc {
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #333;
+                margin-top: 15px;
+                padding-left: 32px;
+            }
+        }
+
+        .advantageCardTo {
+            width: 586px;
+            height: 328px;
+            background-color: #f6f9fd;
+
+            .iconBox {
+                background: #f0f7ff;
+                border-radius: 8px;
+                padding: 40px 0px 40px 40px;
+                width: 64px;
+                height: 64px;
+            }
+
+            .cardTitle {
+                font-size: 24px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                color: #333;
+                padding-left: 32px;
+            }
+
+            .cardDesc {
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #333;
+                margin-top: 15px;
+                padding-left: 32px;
+            }
+        }
+
+        .sectionWrapTo_content {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 66px;
+
+            .sectionLeft {
+                width: 50%;
+            }
+
+            .sectionRight {
+                width: 50%;
+                text-align: right;
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #5c5e6b;
+            }
+        }
+
+        .sectionTitle {
+            font-size: 36px;
+            line-height: 1.2;
+            margin: 0;
+
+            .blueText {
+                color: #1677ff;
+            }
+        }
+
+        .contentText {
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+        }
+
+        .bpoGrid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+
+            .hrCardActive {
+                width: 385px;
+                height: 729px;
+                border-radius: 21.4px;
+                box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+                border: solid 2.7px #377ded;
+                background-color: rgba(255, 255, 255, 0);
+            }
+
+            .hrCardActiveTo {
+                width: 385px;
+                height: 729px;
+                border-radius: 21.4px;
+                box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+                background-color: rgba(255, 255, 255, 0);
+                border: solid 1.3px #e0eaf8;
+            }
+
+            .cardRow {
+                padding: 14px 20px;
+                background: rgba(255, 255, 255, 0.1);
+                border-bottom: solid 1.3px rgba(0, 0, 0, 0.1);
+
+                .rowLabel {
+                    font-size: 16px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.5;
+                    letter-spacing: 0.96px;
+                    color: #9ca3af;
+                    margin-bottom: 15px;
+                }
+
+            }
+
+            .tagBlue {
+                height: 39px;
+                padding: 5.3px 16px 1.7px 16px;
+                border-radius: 22417006px;
+                background-color: rgba(55, 125, 237, 0.1);
+                font-size: 20px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #377ded;
+                display: inline-block;
+            }
+
+            .tagBlueTo {
+                height: 39px;
+                padding: 5.3px 16px 1.7px 16px;
+                border-radius: 22417006px;
+                background-color: #f3f4f6;
+                font-size: 20px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #4b5563;
+                display: inline-block;
+            }
+
+            .hrCardActive .cardRow:last-of-type,
+            .hrCardActiveTo .cardRow:last-of-type {
+                border-bottom: none;
+            }
+
+            .bpoGrid {
+                display: flex;
+                gap: 34px;
+                margin-bottom: 30px;
+            }
+
+            .advantageCardTo {
+                width: 380px;
+                height: 360px;
+                background-color: #f6f9fd;
+
+                .iconBox {
+                    background: #f0f7ff;
+                    border-radius: 8px;
+                    padding: 54px 0px 37px 43px;
+
+                }
+
+                .cardTitle {
+                    font-size: 24px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.33;
+                    letter-spacing: 0.24px;
+                    color: #333;
+                    padding-left: 43px;
+                }
+
+                .cardDesc {
+                    font-size: 20px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    letter-spacing: 0.8px;
+                    color: #333;
+                    margin-top: 15px;
+                    padding-left: 43px;
+                }
+            }
+        }
+
+    }
+}
+
+@media (max-width: 1024px) {
+    .headerLeft {
+        flex: 1;
+        margin-left: 32px;
+        display: flex;
+    }
+
+    // Banner区域
+    .bannerWrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+        margin-bottom: 240px;
+        box-sizing: border-box;
+
+        .bannerLeft {
+            padding-left: 32px;
+            box-sizing: border-box;
+            width: 500px;
+        }
+
+        .sectionTag {
+            font-family: SofiaPro;
+            font-size: 16px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.96px;
+            color: #377ded;
+            margin-bottom: 15px;
+
+            .sectionTag_icon {
+                display: inline-block;
+                width: 32px;
+                height: 1px;
+                margin: 11.5px 12px 11.5px 0;
+                background-color: #377ded;
+                position: relative;
+                top: 10px
+            }
+        }
+
+        .bigTitle {
+            font-size: 52px;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 0;
+
+            .blueTitle {
+                color: #1677ff;
+            }
+        }
+
+        .descText {
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.8px;
+            color: #5c5e6b;
+        }
+
+        .solutionBtnWrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            position: relative;
+            top: 50px;
+
+            .btnActive {
+                width: 353.3px;
+                height: 76.1px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 19px;
+                border-radius: 22.2px;
+                border: solid 1.6px #377ded;
+                background-color: #377ded;
+                font-size: 24px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                color: #fff;
+            }
+
+            .btnNormal {
+                border: 1px solid #e5e7eb;
+                font-size: 15px;
+                width: 353.3px;
+                height: 76.1px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 19px;
+                border-radius: 22.2px;
+                font-size: 24px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                background-color: #fff;
+            }
+
+            .btnNormalTo {
+                border: 1px solid #e5e7eb;
+                font-size: 15px;
+                width: 355.3px;
+                height: 107.8px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 19px;
+                border-radius: 22.2px;
+                font-size: 24px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                background-color: #fff;
+            }
+        }
+
+        .dataRow {
+            display: flex;
+            gap: 30px;
+            position: relative;
+            top: 40px;
+            width: 725px;
+
+            .dataItem {
+                .numText {
+                    font-size: 56px;
+                    font-weight: 700;
+                    color: #1677ff;
+                    display: block;
+                }
+
+                .labelText {
+                    font-size: 24px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    letter-spacing: 0.96px;
+                    color: #89a;
+                }
+            }
+        }
+
+        .bannerRight {
+
+            .imgTop {
+                width: 448px;
+                height: 340px;
+                background: #f5f7fa;
+                border-radius: 12px;
+                margin-bottom: 16px;
+                box-sizing: border-box;
+                position: relative;
+                top: 85px;
+                right: -16px;
+
+                .logoImg {
+                    width: 100%;
+                    height: 100%;
+                    // 等比例铺满盒子不变形，超出部分裁剪
+                    object-fit: contain;
+
+                }
+            }
+
+            .imgBottomWrap {
+                display: flex;
+                gap: 12px;
+                flex-direction: column;
+                align-items: flex-end;
+                position: relative;
+                top: 125px;
+                right: 18px;
+
+                .imgBottomLeft {
+                    width: 206px;
+                    height: 210px;
+                    background: #f5f7fa;
+                    border-radius: 12px;
+
+                    .logoImg {
+                        width: 100%;
+                        height: 100%;
+                        // 等比例铺满盒子不变形，超出部分裁剪
+                        object-fit: contain;
+
+                    }
+                }
+
+                .imgBottomRight {
+                    width: 206px;
+                    height: 129px;
+                    background: #f5f7fa;
+                    border-radius: 12px;
+
+                    .logoImg {
+                        width: 100%;
+                        height: 100%;
+                        // 等比例铺满盒子不变形，超出部分裁剪
+                        object-fit: contain;
+
+                    }
+                }
+            }
+        }
+    }
+
+    .sectionWrap {
+        padding-left: 32px;
+        padding-right: 32px;
+        display: flex;
+        margin-bottom: 64px;
+        flex-direction: column;
+
+        .sectionLeft {
+            margin-right: 470px;
+        }
+
+        .sectionRight {
+            margin-top: 32px;
+        }
+
+        .sectionTitle {
+            font-size: 36px;
+            line-height: 1.2;
+            margin: 0;
+
+            .blueText {
+                color: #1677ff;
+            }
+        }
+
+        .contentText {
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+        }
+    }
+
+    .sectionWrapTo {
+        padding-left: 32px;
+        padding-right: 17px;
+        margin-bottom: 89px;
+
+        .flexibleGrid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+
+            .advantageCard {
+                width: 480px;
+                height: 368px;
+                background-color: #f6f9fd;
+
+                .iconBox {
+                    background: #f0f7ff;
+                    border-radius: 8px;
+                    padding: 54px 0px 37px 43px;
+
+                }
+
+                .cardTitle {
+                    font-size: 32px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.33;
+                    letter-spacing: 0.24px;
+                    color: #333;
+                    padding-left: 43px;
+                }
+
+                .cardDesc {
+                    font-size: 32px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    letter-spacing: 0.8px;
+                    color: #333;
+                    margin-top: 15px;
+                    padding-left: 43px;
+                }
+            }
+
+            .advantageCardTo {
+                width: 480px;
+                height: 368px;
+                background-color: #f6f9fd;
+
+                .iconBox {
+                    background: #f0f7ff;
+                    border-radius: 8px;
+                    padding: 54px 0px 37px 43px;
+
+                }
+
+                .cardTitle {
+                    font-size: 32px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.33;
+                    letter-spacing: 0.24px;
+                    color: #333;
+                    padding-left: 43px;
+                }
+
+                .cardDesc {
+                    font-size: 32px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    letter-spacing: 0.8px;
+                    color: #333;
+                    margin-top: 15px;
+                    padding-left: 43px;
+                }
+            }
+        }
+
+        .advantageCard {
+            width: 305px;
+            height: 450px;
+            background-color: #f6f9fd;
+
+            .iconBox {
+                background: #f0f7ff;
+                border-radius: 8px;
+                padding: 40px 0px 40px 40px;
+                width: 64px;
+                height: 64px;
+            }
+
+            .cardTitle {
+                font-family: SofiaPro;
+                font-size: 24px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                padding-left: 32px;
+            }
+
+            .cardDesc {
+                font-family: SofiaPro;
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #333;
+                margin-top: 15px;
+                padding-left: 32px;
+            }
+        }
+
+        .sectionWrapTo_content {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 66px;
+            flex-direction: column;
+
+            .sectionLeft {
+                width: 100%;
+            }
+
+            .sectionRight {
+                width: 100%;
+                text-align: right;
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #5c5e6b;
+                margin-top: 32px;
+            }
+        }
+
+        .sectionTitle {
+            font-size: 36px;
+            line-height: 1.2;
+            margin: 0;
+
+            .blueText {
+                color: #1677ff;
+            }
+        }
+
+        .contentText {
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+        }
+
+
+    }
+
+    .sectionWrapThree {
+        padding-left: 32px;
+        padding-right: 17px;
+        margin-bottom: 170px;
+
+        .advantageCard {
+            width: 586px;
+            height: 328px;
+            background-color: #f6f9fd;
+
+            .iconBox {
+                background: #f0f7ff;
+                border-radius: 8px;
+                padding: 40px 0px 40px 40px;
+                width: 64px;
+                height: 64px;
+            }
+
+            .cardTitle {
+                font-size: 24px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                color: #333;
+                padding-left: 32px;
+            }
+
+            .cardDesc {
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #333;
+                margin-top: 15px;
+                padding-left: 32px;
+            }
+        }
+
+        .advantageCardTo {
+            width: 586px;
+            height: 328px;
+            background-color: #f6f9fd;
+
+            .iconBox {
+                background: #f0f7ff;
+                border-radius: 8px;
+                padding: 40px 0px 40px 40px;
+                width: 64px;
+                height: 64px;
+            }
+
+            .cardTitle {
+                font-size: 24px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                color: #333;
+                padding-left: 32px;
+            }
+
+            .cardDesc {
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #333;
+                margin-top: 15px;
+                padding-left: 32px;
+            }
+        }
+
+        .sectionWrapTo_content {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 66px;
+
+            .sectionLeft {
+                width: 50%;
+            }
+
+            .sectionRight {
+                width: 50%;
+                text-align: right;
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #5c5e6b;
+            }
+        }
+
+        .sectionTitle {
+            font-size: 36px;
+            line-height: 1.2;
+            margin: 0;
+
+            .blueText {
+                color: #1677ff;
+            }
+        }
+
+        .contentText {
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+        }
+
+        .hrGrid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+
+            .hrCardActive {
+                width: 300.2px;
+                height: 729px;
+                border-radius: 21.4px;
+                box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+                border: solid 2.7px #377ded;
+                background-color: rgba(255, 255, 255, 0);
+            }
+
+            .hrCardActiveTo {
+                width: 300.2px;
+                height: 729px;
+                border-radius: 21.4px;
+                box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+                background-color: rgba(255, 255, 255, 0);
+                border: solid 1.3px #e0eaf8;
+            }
+
+            .cardRow {
+                padding: 14px 20px;
+                background: rgba(255, 255, 255, 0.1);
+                border-bottom: solid 1.3px rgba(0, 0, 0, 0.1);
+
+                .rowLabel {
+                    font-size: 16px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.5;
+                    letter-spacing: 0.96px;
+                    color: #9ca3af;
+                    margin-bottom: 15px;
+                }
+
+            }
+
+            .tagBlue {
+                height: 39px;
+                padding: 5.3px 16px 1.7px 16px;
+                border-radius: 22417006px;
+                background-color: rgba(55, 125, 237, 0.1);
+                font-size: 20px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #377ded;
+                display: inline-block;
+            }
+
+            .tagBlueTo {
+                height: 39px;
+                padding: 5.3px 16px 1.7px 16px;
+                border-radius: 22417006px;
+                background-color: #f3f4f6;
+                font-size: 20px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #4b5563;
+                display: inline-block;
+            }
+
+            .hrCardActive .cardRow:last-of-type,
+            .hrCardActiveTo .cardRow:last-of-type {
+                border-bottom: none;
+            }
+
+            .bpoGrid {
+                display: flex;
+                gap: 34px;
+                margin-bottom: 30px;
+            }
+
+            .advantageCardTo {
+                width: 380px;
+                height: 360px;
+                background-color: #f6f9fd;
+
+                .iconBox {
+                    background: #f0f7ff;
+                    border-radius: 8px;
+                    padding: 54px 0px 37px 43px;
+
+                }
+
+                .cardTitle {
+                    font-size: 24px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.33;
+                    letter-spacing: 0.24px;
+                    color: #333;
+                    padding-left: 43px;
+                }
+
+                .cardDesc {
+                    font-size: 20px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    letter-spacing: 0.8px;
+                    color: #333;
+                    margin-top: 15px;
+                    padding-left: 43px;
+                }
+            }
+        }
+
+    }
+
+    .sectionWrapFour {
+        padding-left: 32px;
+        padding-right: 17px;
+
+        .sectionWrapTo_content {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 66px;
+
+            .sectionLeft {
+                width: 50%;
+            }
+
+            .sectionRight {
+                width: 100%;
+                text-align: right;
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #5c5e6b;
+            }
+        }
+
+        .bpoGrid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+
+            .hrCardActive {
+                width: 385px;
+                height: 729px;
+                border-radius: 21.4px;
+                box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+                border: solid 2.7px #377ded;
+                background-color: rgba(255, 255, 255, 0);
+            }
+
+            .hrCardActiveTo {
+                width: 385px;
+                height: 729px;
+                border-radius: 21.4px;
+                box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+                background-color: rgba(255, 255, 255, 0);
+                border: solid 1.3px #e0eaf8;
+            }
+
+            .cardRow {
+                padding: 14px 20px;
+                background: rgba(255, 255, 255, 0.1);
+                border-bottom: solid 1.3px rgba(0, 0, 0, 0.1);
+
+                .rowLabel {
+                    font-size: 16px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.5;
+                    letter-spacing: 0.96px;
+                    color: #9ca3af;
+                    margin-bottom: 15px;
+                }
+
+            }
+
+            .tagBlue {
+                height: 39px;
+                padding: 5.3px 16px 1.7px 16px;
+                border-radius: 22417006px;
+                background-color: rgba(55, 125, 237, 0.1);
+                font-size: 20px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #377ded;
+                display: inline-block;
+            }
+
+            .tagBlueTo {
+                height: 39px;
+                padding: 5.3px 16px 1.7px 16px;
+                border-radius: 22417006px;
+                background-color: #f3f4f6;
+                font-size: 20px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #4b5563;
+                display: inline-block;
+            }
+
+            .hrCardActive .cardRow:last-of-type,
+            .hrCardActiveTo .cardRow:last-of-type {
+                border-bottom: none;
+            }
+
+            .bpoGrid {
+                display: flex;
+                gap: 34px;
+                margin-bottom: 30px;
+            }
+
+            .advantageCardTo {
+                width: 305px;
+                height: 450px;
+                background-color: #f6f9fd;
+
+                .iconBox {
+                    background: #f0f7ff;
+                    border-radius: 8px;
+                    padding: 54px 0px 37px 43px;
+
+                }
+
+                .cardTitle {
+                    font-size: 24px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.33;
+                    letter-spacing: 0.24px;
+                    color: #333;
+                    padding-left: 43px;
+                }
+
+                .cardDesc {
+                    font-size: 20px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    letter-spacing: 0.8px;
+                    color: #333;
+                    margin-top: 15px;
+                    padding-left: 43px;
+                }
+            }
+        }
+    }
+
+    .footerWrap {
+        background: #333;
+        color: #ccc;
+        padding: 60px;
+        margin-top: 40px;
+
+        .footerHead {
+            margin-bottom: 30px;
+
+            .footerLabel {
+                color: #aaa;
+                margin-bottom: 12px;
+            }
+
+            p {
+                margin: 6px 0;
+                font-size: 17px;
+            }
+        }
+
+        .footerOfficeTitle {
+            color: #aaa;
+            margin-bottom: 16px;
+        }
+
+        .officeGrid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px 8px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.8px;
+            color: #f8f8f8;
+            margin-bottom: 149px;
+
+            span {
+                font-size: 16px;
+            }
+        }
+
+        .copyrightWrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+
+            .footerLogo {
+                color: #fff;
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 32px;
+    }
+
+    .headerLeft {
+        flex: 1;
+        margin-left: 0px;
+        display: flex;
+    }
+
+    /* 移动端汉堡按钮 414px以下显示 */
+    .hamburgerBtn {
+        display: none;
+        border: none;
+        background: transparent;
+        font-size: 28px;
+        cursor: pointer;
+        padding: 4px 8px;
+    }
+
+    /* 遮罩层 */
+    .menuOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 999;
+    }
+
+    /* 右侧抽屉容器 */
+    .drawerWrap {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        background: #fff;
+        padding: 24px;
+        box-sizing: border-box;
+    }
+
+    /* 抽屉头部 */
+    .drawerHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .closeBtn {
+        border: none;
+        background: transparent;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* 移动端侧边导航 */
+    .mobileNav {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin-top: 40px;
+    }
+
+    .mobileNav a {
+        font-size: 18px;
+        color: #333;
+        text-decoration: none;
+    }
+
+    /* 媒体查询：宽度≤414px 移动端样式 */
+    @media screen and (max-width: 768px) {
+        .hamburgerBtn {
+            display: block;
+        }
+    }
+
+    .bannerWrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+        margin-bottom: 80px;
+
+        .bannerLeft {
+            width: 100%;
+        }
+
+        .sectionTag {
+            font-family: SofiaPro;
+            font-size: 16px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.96px;
+            text-align: left;
+            color: #377ded;
+
+            .sectionTag_icon {
+                display: inline-block;
+                width: 32px;
+                height: 1px;
+                margin: 11.5px 12px 11.5px 0;
+                background-color: #377ded;
+                position: relative;
+                top: 10px
+            }
+        }
+
+        .bigTitle {
+            font-size: 52px;
+            margin-top: 24px;
+
+            .blueTitle {
+                color: #1677ff;
+            }
+        }
+
+        .descText {
+            font-family: SofiaPro;
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+            margin-bottom: 30px;
+            margin-top: 15px;
+        }
+
+        .solutionBtnWrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 40px;
+
+            .btnActive {
+                width: 355.3px;
+                height: 76.1px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 19px;
+                border-radius: 22.2px;
+                border: solid 1.6px #377ded;
+                background-color: #377ded;
+                font-size: 24px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                color: #fff;
+            }
+
+            .btnNormal {
+                border: 1px solid #e5e7eb;
+                font-size: 15px;
+                width: 355.3px;
+                height: 76.1px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 19px;
+                border-radius: 22.2px;
+                font-size: 24px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                background-color: #fff;
+            }
+
+            .btnNormalTo {
+                border: 1px solid #e5e7eb;
+                font-size: 15px;
+                width: 355.3px;
+                height: 107.8px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 19px;
+                border-radius: 22.2px;
+                font-size: 24px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.24px;
+                background-color: #fff;
+            }
+        }
+
+        .dataRow {
+            display: flex;
+            gap: 24px;
+            width: 100%;
+
+            .dataItem {
+                .numText {
+                    font-size: 56px;
+                    font-weight: 700;
+                    color: #1677ff;
+                    display: block;
+                }
+
+                .labelText {
+                    font-size: 24px;
+                    color: #666;
+                }
+            }
+        }
+
+        .bannerRight {
+            .imgTop {
+                width: 777px;
+                height: 590px;
+                background: #f5f7fa;
+                border-radius: 12px;
+                margin-bottom: 16px;
+
+                .logoImg {
+                    width: 100%;
+                    height: 100%;
+                    // 等比例铺满盒子不变形，超出部分裁剪
+                    object-fit: contain;
+
+                }
+            }
+
+            .imgBottomWrap {
+                display: flex;
+                gap: 46px;
+
+                .imgBottomLeft,
+                .imgBottomRight {
+                    width: 365px;
+                    height: 304px;
+                    background: #f5f7fa;
+                    border-radius: 12px;
+
+                    .logoImg {
+                        width: 100%;
+                        height: 100%;
+                        // 等比例铺满盒子不变形，超出部分裁剪
+                        object-fit: contain;
+
+                    }
+                }
+            }
+        }
+    }
+
+    .sectionWrapTo {
+        padding-left: 24px;
+        padding-right: 18px;
+        margin-bottom: 130px;
+
+        .flexibleGrid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .advantageCardTo {
+            width: 357px;
+            height: 399px;
+            padding-bottom: 20px;
+
+            .iconBox {
+                background: #f0f7ff;
+                border-radius: 8px;
+                padding: 40px 0px 40px 40px;
+                width: 64px;
+                height: 64px;
+            }
+
+            .cardTitle {
+                font-size: 32px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                color: #333;
+                padding-left: 32px;
+            }
+
+            .cardDesc {
+                font-family: SofiaPro;
+                font-size: 32px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                color: #333;
+                padding-left: 32px;
+            }
+        }
+
+        .advantageCard {
+            width: 357px;
+            height: 368px;
+            max-height: 450px;
+            background-color: #f6f9fd;
+
+            .iconBox {
+                background: #f0f7ff;
+                border-radius: 8px;
+                padding: 40px 0px 40px 40px;
+                width: 64px;
+                height: 64px;
+            }
+
+            .cardTitle {
+                font-size: 32px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                color: #333;
+                padding-left: 32px;
+            }
+
+            .cardDesc {
+                font-family: SofiaPro;
+                font-size: 32px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                color: #333;
+            }
+        }
+
+        .sectionWrapTo_content {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 66px;
+
+            .sectionLeft {
+                width: 50%;
+            }
+
+            .sectionRight {
+                width: 100%;
+                text-align: right;
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #5c5e6b;
+            }
+        }
+
+        .sectionTitle {
+            font-size: 36px;
+            line-height: 1.2;
+            margin: 0;
+
+            .blueText {
+                color: #1677ff;
+            }
+        }
+
+        .contentText {
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+        }
+
+        .hrGrid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+
+            .textList {
+                font-size: 12px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                color: #5c5e6b;
+
+            }
+
+            .tagBlue {
+                height: 25px;
+                padding: 4px 16px;
+                border-radius: 22417006px;
+                background-color: rgba(55, 125, 237, 0.1);
+                font-size: 14.2px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #377ded;
+                display: inline-block;
+            }
+
+            .tagBlueTo {
+                height: 25px;
+                padding: 4px 16px;
+                border-radius: 22417006px;
+                background-color: #f3f4f6;
+                font-size: 14.2px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #4b5563;
+                display: inline-block;
+            }
         }
     }
 }
