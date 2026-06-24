@@ -887,7 +887,7 @@ const Home = () => {
                         autoplay={{
                             delay: 2000,        // 2秒自动切换一页
                             disableOnInteraction: false, // 用户拖拽/点击后继续自动轮播
-                            pauseOnMouseEnter: true,     // 鼠标悬浮在轮播区域时暂停轮播
+                            // pauseOnMouseEnter: true,     // 鼠标悬浮在轮播区域时暂停轮播
                         }}
                         loop={true} // 开启无限循环轮播
                         onSwiper={getSwiperInstance}
@@ -997,7 +997,7 @@ const Home = () => {
                         autoplay={{
                             delay: 2000,        // 2秒自动切换一页
                             disableOnInteraction: false, // 用户拖拽/点击后继续自动轮播
-                            pauseOnMouseEnter: true,     // 鼠标悬浮在轮播区域时暂停轮播
+                            // pauseOnMouseEnter: true,     // 鼠标悬浮在轮播区域时暂停轮播
                         }}
                         loop={true} // 开启无限循环轮播
                         onSwiper={getSwiperInstance}
