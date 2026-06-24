@@ -76,6 +76,31 @@ const brandListTo = [
     { name: 'NOVARTIS2', type: 'img', src: Our15 },
     { name: 'zaiLab2', type: 'img', src: Our16 },
 ];
+const brandListThree = [
+    { name: 'Johnson&Johnson', type: 'svg', src: Our1 },
+    { name: 'GSK', type: 'img', src: Our2 },
+    { name: 'MSD', type: 'img', src: Our3 },
+    { name: 'BeOne', type: 'img', src: Our4 },
+    { name: 'Boehringer Ingelheim', type: 'img', src: Our5 },
+    { name: 'novo nordisk', type: 'img', src: Our6 },
+
+];
+const brandListFour = [
+    { name: 'NOVARTIS', type: 'img', src: Our7 },
+    { name: 'zaiLab', type: 'img', src: Our8 },
+    { name: 'Johnson&Johnson2', type: 'img', src: Our9 },
+    { name: 'GSK2', type: 'img', src: Our10 },
+    { name: 'MSD2', type: 'img', src: Our11 },
+    { name: 'BeOn2', type: 'img', src: Our12 },
+
+];
+const brandFive = [
+    { name: 'Boehringer Ingelheim2', type: 'img', src: Our13 },
+    { name: 'novo nordisk2', type: 'img', src: Our14 },
+    { name: 'NOVARTIS2', type: 'img', src: Our15 },
+    { name: 'zaiLab2', type: 'img', src: Our16 },
+];
+
 
 const strategicList = [
     { name: 'Johnson&Johnson', type: 'svg', src: Stra1 },
@@ -94,6 +119,27 @@ const strategicListTo = [
     { name: 'BeOne', type: 'img', src: Stra12 },
 
 ];
+
+const strategicListThree = [
+    { name: 'Johnson&Johnson', type: 'svg', src: Stra1 },
+    { name: 'GSK', type: 'img', src: Stra2 },
+    { name: 'MSD', type: 'img', src: Stra3 },
+    { name: 'BeOne', type: 'img', src: Stra4 },
+    { name: 'Boehringer Ingelheim', type: 'img', src: Stra5 },
+    { name: 'novo nordisk', type: 'img', src: Stra6 },
+
+];
+const strategicListFour = [
+    { name: 'NOVARTIS', type: 'img', src: Stra7 },
+    { name: 'zaiLab', type: 'img', src: Stra8 },
+    { name: 'Johnson&Johnson', type: 'svg', src: Stra9 },
+    { name: 'GSK', type: 'img', src: Stra10 },
+    { name: 'MSD', type: 'img', src: Stra11 },
+    { name: 'BeOne', type: 'img', src: Stra12 },
+];
+
+
+
 const Home = () => {
     // 当前激活下标，默认2024
     const [activeIndex, setActiveIndex] = useState(0)
@@ -108,12 +154,15 @@ const Home = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     // 判断是否移动端：宽度≤768
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [isMobileTo, setIsMobileTo] = useState(window.innerWidth <= 414);
 
     // 监听窗口尺寸变化
     useEffect(() => {
         const handleResize = () => {
             const mobile = window.innerWidth <= 768;
             setIsMobile(mobile);
+            const mobileTo = window.innerWidth <= 414;
+            setIsMobileTo(mobileTo);
             // 切大屏时自动关闭侧边菜单
             if (!mobile) setIsMenuOpen(false);
         };
@@ -174,7 +223,7 @@ const Home = () => {
 
     // 切换页码回调
     const onSlideChangeHandler = (swiper) => {
-        const realIndex = swiper.realIndex % 2;
+        const realIndex = isMobileTo ? swiper.realIndex % 3 : swiper.realIndex % 2;
         setCurrentPageIndex(realIndex);
     };
 
@@ -182,7 +231,7 @@ const Home = () => {
     const handlePageClick = (index) => {
         swiperInstance?.slideTo(index);
     };
-
+    console.log('isMobile', isMobile)
     return (
         <div className={Styles.wrap}>
             <div className={Styles.header}>
@@ -252,15 +301,21 @@ const Home = () => {
                         Intelligence<br />
                         Platform
                     </div>
-                    <div className={Styles.descText}>
-                        Connecting Life Sciences Companies, Investors,<br />
-                        And Decision-Makers With Top Talent And<br />
-                        Expert Insights Worldwide.
-                    </div>
-                    <div className={Styles.btnGroup}>
-                        <button className={Styles.btnPrimary}>Talk To Us</button>
-                        <button className={Styles.btnOutline}>Explore Services</button>
-                    </div>
+                    {
+                        !isMobileTo && (
+                            <>
+                                <div className={Styles.descText}>
+                                    Connecting Life Sciences Companies, Investors,<br />
+                                    And Decision-Makers With Top Talent And<br />
+                                    Expert Insights Worldwide.
+                                </div>
+                                <div className={Styles.btnGroup}>
+                                    <button className={Styles.btnPrimary}>Talk To Us</button>
+                                    <button className={Styles.btnOutline}>Explore Services</button>
+                                </div>
+                            </>
+                        )
+                    }
 
                 </div>
             </div>
@@ -271,9 +326,18 @@ const Home = () => {
                     <div className={Styles.iconBox}>
                         <ServiceWrap1 />
                     </div>
-                    <div className={Styles.textBox}>
-                        AI-Driven Talent<br />Matching
-                    </div>
+                    {
+                        !isMobile ? (
+                            <div className={Styles.textBox}>
+                                AI-Driven Talent<br />Matching
+                            </div>
+                        ) : (
+                            <div className={Styles.textBox}>
+                                AI-Driven Talent Matching
+                            </div>
+                        )
+                    }
+
                 </div>
 
                 {/* 第二项 */}
@@ -299,10 +363,20 @@ const Home = () => {
             {/* About Us 模块 */}
             <div className={Styles.section}>
                 <div className={Styles.sectionLeft}>
-                    <h2 className={Styles.sectionTitle}>
-                        About Us<br />
-                        <span className={Styles.blueText}>Who We Are</span>
-                    </h2>
+                    {
+                        !isMobile ? (
+                            <h2 className={Styles.sectionTitle}>
+                                About Us<br />
+                                <span className={Styles.blueText}>Who We Are</span>
+                            </h2>
+                        ) : (
+                            <div className={Styles.sectionTitle}>
+                                About Us
+                                <div className={Styles.blueText}>Who We Are</div>
+                            </div>
+                        )
+                    }
+
                 </div>
                 <div className={Styles.sectionRight}>
                     <div className={Styles.aboutText}>
@@ -484,57 +558,123 @@ const Home = () => {
             </div>
 
             {/* 数字统计区 */}
-            <div ref={wrapRef} className={Styles.dataWrap}>
-                {/* 第1个卡片 */}
-                <div className={Styles.dataItem}>
-                    <div className={Styles.iconBox}>
-                        <Count1 />
-                    </div>
-                    <div className={Styles.numText}>
-                        {isShowAnim ? <CountUp start={0} end={30} duration={2.5} /> : '0'}+
-                    </div>
-                    <div className={Styles.descText}>
-                        Countries &<br />
-                        Regions Coverage
-                    </div>
-                </div>
+            {
+                !isMobile ? (
+                    <div ref={wrapRef} className={Styles.dataWrap}>
+                        {/* 第1个卡片 */}
+                        <div className={Styles.dataItem}>
+                            <div className={Styles.iconBox}>
+                                <Count1 />
+                            </div>
+                            <div className={Styles.numText}>
+                                {isShowAnim ? <CountUp start={0} end={30} duration={2.5} /> : '0'}+
+                            </div>
+                            <div className={Styles.descText}>
+                                Countries &<br />
+                                Regions Coverage
+                            </div>
+                        </div>
 
-                {/* 第2个卡片 */}
-                <div className={Styles.dataItem}>
-                    <div className={Styles.iconBox}>
-                        <Count2 />
-                    </div>
-                    <div className={Styles.numText}>
-                        {isShowAnim ? <CountUp start={0} end={1000} duration={2.5} separator="," /> : '0'}+
-                    </div>
-                    <div className={Styles.descText}>Employees</div>
-                </div>
+                        {/* 第2个卡片 */}
+                        <div className={Styles.dataItem}>
+                            <div className={Styles.iconBox}>
+                                <Count2 />
+                            </div>
+                            <div className={Styles.numText}>
+                                {isShowAnim ? <CountUp start={0} end={1000} duration={2.5} separator="," /> : '0'}+
+                            </div>
+                            <div className={Styles.descText}>Employees</div>
+                        </div>
 
-                {/* 第3个卡片 */}
-                <div className={Styles.dataItem}>
-                    <div className={Styles.iconBox}>
-                        <Count3 />
-                    </div>
-                    <div className={Styles.numText}>
-                        {isShowAnim ? <CountUp start={0} end={500} duration={2.5} /> : '0'}+
-                    </div>
-                    <div className={Styles.descText}>
-                        World-Class<br />
-                        Clients
-                    </div>
-                </div>
+                        {/* 第3个卡片 */}
+                        <div className={Styles.dataItem}>
+                            <div className={Styles.iconBox}>
+                                <Count3 />
+                            </div>
+                            <div className={Styles.numText}>
+                                {isShowAnim ? <CountUp start={0} end={500} duration={2.5} /> : '0'}+
+                            </div>
+                            <div className={Styles.descText}>
+                                World-Class<br />
+                                Clients
+                            </div>
+                        </div>
 
-                {/* 第4个卡片 */}
-                <div className={Styles.dataItem}>
-                    <div className={Styles.iconBox}>
-                        <Count4 />
+                        {/* 第4个卡片 */}
+                        <div className={Styles.dataItem}>
+                            <div className={Styles.iconBox}>
+                                <Count4 />
+                            </div>
+                            <div className={Styles.numText}>
+                                {isShowAnim ? <CountUp start={0} end={15} duration={2.5} /> : '0'}+
+                            </div>
+                            <div className={Styles.descText}>Years Experience</div>
+                        </div>
                     </div>
-                    <div className={Styles.numText}>
-                        {isShowAnim ? <CountUp start={0} end={15} duration={2.5} /> : '0'}+
+                ) : (
+                    <div ref={wrapRef} className={Styles.dataWrap}>
+                        {/* 第1个卡片 */}
+                        <div className={Styles.dataItem}>
+                            <div className={Styles.iconBox}>
+                                <Count1 />
+                            </div>
+                            <div>
+                                <div className={Styles.numText}>
+                                    {isShowAnim ? <CountUp start={0} end={30} duration={2.5} /> : '0'}+
+                                </div>
+                                <div className={Styles.descText}>
+                                    Countries &<br />
+                                    Regions Coverage
+                                </div>
+                            </div>
+
+                        </div>
+
+                        {/* 第2个卡片 */}
+                        <div className={Styles.dataItem}>
+                            <div className={Styles.iconBox}>
+                                <Count2 />
+                            </div>
+                            <div>
+                                <div className={Styles.numText}>
+                                    {isShowAnim ? <CountUp start={0} end={1000} duration={2.5} separator="," /> : '0'}+
+                                </div>
+                                <div className={Styles.descText}>Employees</div>
+                            </div>
+                        </div>
+
+                        {/* 第3个卡片 */}
+                        <div className={Styles.dataItem}>
+                            <div className={Styles.iconBox}>
+                                <Count3 />
+                            </div>
+                            <div>
+                                <div className={Styles.numText}>
+                                    {isShowAnim ? <CountUp start={0} end={500} duration={2.5} /> : '0'}+
+                                </div>
+                                <div className={Styles.descText}>
+                                    World-Class<br />
+                                    Clients
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 第4个卡片 */}
+                        <div className={Styles.dataItem}>
+                            <div className={Styles.iconBox}>
+                                <Count4 />
+                            </div>
+                            <div>
+                                <div className={Styles.numText}>
+                                    {isShowAnim ? <CountUp start={0} end={15} duration={2.5} /> : '0'}+
+                                </div>
+                                <div className={Styles.descText}>Years Experience</div>
+                            </div>
+                        </div>
                     </div>
-                    <div className={Styles.descText}>Years Experience</div>
-                </div>
-            </div>
+                )
+            }
+
 
             {/* Vision & Mission */}
             <div className={Styles.vmWrap}>
@@ -544,67 +684,98 @@ const Home = () => {
 
                 {/* Vision卡片 */}
                 {
-                    isMobile ? (
+                    isMobileTo ? (
                         <div className={Styles.vmCard}>
                             <div className={Styles.cardHeader}>
                                 <div className={Styles.iconBox}>
                                     <Vision1 />
                                 </div>
-                            </div>
-                            <div className={Styles.vmCard_text}>
                                 <div className={Styles.cardTitle}>Vision</div>
-                                <div className={Styles.cardDesc}>
-                                    To build a global expressway for seamless talent connectivity and mutual growth.
-                                </div>
                             </div>
-
+                            <div className={Styles.cardDesc}>
+                                To build a global expressway for seamless talent connectivity and mutual growth.
+                            </div>
                         </div>
                     ) : (
-                        <div className={Styles.vmCard}>
-                            <div className={Styles.cardHeader}>
-                                <div className={Styles.iconBox}>
-                                    <Vision1 />
+                        isMobile ? (
+                            <div className={Styles.vmCard}>
+                                <div className={Styles.cardHeader}>
+                                    <div className={Styles.iconBox}>
+                                        <Vision1 />
+                                    </div>
                                 </div>
-                                <h3 className={Styles.cardTitle}>Vision</h3>
+                                <div className={Styles.vmCard_text}>
+                                    <div className={Styles.cardTitle}>Vision</div>
+                                    <div className={Styles.cardDesc}>
+                                        To build a global expressway for seamless talent connectivity and mutual growth.
+                                    </div>
+                                </div>
+
                             </div>
-                            <p className={Styles.cardDesc}>
-                                To build a global expressway for seamless talent connectivity and mutual growth.
-                            </p>
-                        </div>
+                        ) : (
+                            <div className={Styles.vmCard}>
+                                <div className={Styles.cardHeader}>
+                                    <div className={Styles.iconBox}>
+                                        <Vision1 />
+                                    </div>
+                                    <h3 className={Styles.cardTitle}>Vision</h3>
+                                </div>
+                                <p className={Styles.cardDesc}>
+                                    To build a global expressway for seamless talent connectivity and mutual growth.
+                                </p>
+                            </div>
+                        )
                     )
                 }
+
 
                 {/* Mission卡片 */}
                 {
-                    isMobile ? (
+                    isMobileTo ? (
                         <div className={Styles.vmCard}>
                             <div className={Styles.cardHeader}>
                                 <div className={Styles.iconBox}>
                                     <Vision2 />
                                 </div>
-                            </div>
-                            <div className={Styles.vmCard_text}>
                                 <div className={Styles.cardTitle}>Mission</div>
-                                <div className={Styles.cardDesc}>
+                            </div>
+                            <div className={Styles.cardDesc}>
                                 We are committed to fostering a workplace that embraces diversity, equity, and inclusion. We believe that diverse perspectives drive innovation and lead to better business outcomes. Our mission is to create an environment where every individual feels valued, respected, and empowered to contribute their unique talents to collective success. We strive to create equal opportunities for professional growth and development for all, irrespective of gender, race, ethnicity, age, sexual orientation, disability, or any other demographic characteristic.
-                                </div>
                             </div>
 
                         </div>
                     ) : (
-                        <div className={Styles.vmCard}>
-                            <div className={Styles.cardHeader}>
-                                <div className={Styles.iconBox}>
-                                    <Vision2 />
+                        isMobile ? (
+                            <div className={Styles.vmCard}>
+                                <div className={Styles.cardHeader}>
+                                    <div className={Styles.iconBox}>
+                                        <Vision2 />
+                                    </div>
                                 </div>
-                                <h3 className={Styles.cardTitle}>Mission</h3>
+                                <div className={Styles.vmCard_text}>
+                                    <div className={Styles.cardTitle}>Mission</div>
+                                    <div className={Styles.cardDesc}>
+                                        We are committed to fostering a workplace that embraces diversity, equity, and inclusion. We believe that diverse perspectives drive innovation and lead to better business outcomes. Our mission is to create an environment where every individual feels valued, respected, and empowered to contribute their unique talents to collective success. We strive to create equal opportunities for professional growth and development for all, irrespective of gender, race, ethnicity, age, sexual orientation, disability, or any other demographic characteristic.
+                                    </div>
+                                </div>
+
                             </div>
-                            <p className={Styles.cardDesc}>
-                                We are committed to fostering a workplace that embraces diversity, equity, and inclusion. We believe that diverse perspectives drive innovation and lead to better business outcomes. Our mission is to create an environment where every individual feels valued, respected, and empowered to contribute their unique talents to collective success. We strive to create equal opportunities for professional growth and development for all, irrespective of gender, race, ethnicity, age, sexual orientation, disability, or any other demographic characteristic.
-                            </p>
-                        </div>
+                        ) : (
+                            <div className={Styles.vmCard}>
+                                <div className={Styles.cardHeader}>
+                                    <div className={Styles.iconBox}>
+                                        <Vision2 />
+                                    </div>
+                                    <h3 className={Styles.cardTitle}>Mission</h3>
+                                </div>
+                                <p className={Styles.cardDesc}>
+                                    We are committed to fostering a workplace that embraces diversity, equity, and inclusion. We believe that diverse perspectives drive innovation and lead to better business outcomes. Our mission is to create an environment where every individual feels valued, respected, and empowered to contribute their unique talents to collective success. We strive to create equal opportunities for professional growth and development for all, irrespective of gender, race, ethnicity, age, sexual orientation, disability, or any other demographic characteristic.
+                                </p>
+                            </div>
+                        )
                     )
                 }
+
 
             </div>
 
@@ -711,7 +882,7 @@ const Home = () => {
                             forceToAxis: true
                         }}
                         autoplay={{
-                            delay: 2000,        // 2秒自动切换一页
+                            delay: 200000,        // 2秒自动切换一页
                             disableOnInteraction: false, // 用户拖拽/点击后继续自动轮播
                             pauseOnMouseEnter: true,     // 鼠标悬浮在轮播区域时暂停轮播
                         }}
@@ -720,25 +891,62 @@ const Home = () => {
                         onSlideChange={onSlideChangeHandler}
                         className={Styles.brandSwiper}
                     >
+                        {
+                            isMobileTo ? (
+                                <>
+                                    <SwiperSlide className={Styles.brandSlideWrap}>
+                                        <div className={Styles.brandGridBox}>
+                                            {brandListThree.map((item, idx) => (
+                                                <div key={idx} className={Styles.brandLogoBox}>
+                                                    <img src={item.src} className={Styles.logoImg} />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide className={Styles.brandSlideWrap}>
+                                        <div className={Styles.brandGridBox}>
+                                            {brandListFour.map((item, idx) => (
+                                                <div key={idx} className={Styles.brandLogoBox}>
+                                                    <img src={item.src} className={Styles.logoImg} />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide className={Styles.brandSlideWrap}>
+                                        <div className={Styles.brandGridBox}>
+                                            {brandFive.map((item, idx) => (
+                                                <div key={idx} className={Styles.brandLogoBox}>
+                                                    <img src={item.src} className={Styles.logoImg} />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </SwiperSlide>
+                                </>
+                            ) : (
+                                <>
+                                    <SwiperSlide className={Styles.brandSlideWrap}>
+                                        <div className={Styles.brandGridBox}>
+
+                                            {brandList.map((item, idx) => (
+                                                <div key={idx} className={Styles.brandLogoBox}>
+                                                    <img src={item.src} className={Styles.logoImg} />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide className={Styles.brandSlideWrap}>
+                                        <div className={Styles.brandGridBox}>
+                                            {brandListTo.map((item, idx) => (
+                                                <div key={idx} className={Styles.brandLogoBox}>
+                                                    <img src={item.src} className={Styles.logoImg} />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </SwiperSlide>
+                                </>
+                            )
+                        }
                         {/* 单个Slide内：2行4列布局 */}
-                        <SwiperSlide className={Styles.brandSlideWrap}>
-                            <div className={Styles.brandGridBox}>
-                                {brandList.map((item, idx) => (
-                                    <div key={idx} className={Styles.brandLogoBox}>
-                                        <img src={item.src} className={Styles.logoImg} />
-                                    </div>
-                                ))}
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className={Styles.brandSlideWrap}>
-                            <div className={Styles.brandGridBox}>
-                                {brandListTo.map((item, idx) => (
-                                    <div key={idx} className={Styles.brandLogoBox}>
-                                        <img src={item.src} className={Styles.logoImg} />
-                                    </div>
-                                ))}
-                            </div>
-                        </SwiperSlide>
 
                     </Swiper>
                     {/* 自定义分页指示器 */}
@@ -751,12 +959,20 @@ const Home = () => {
                             className={currentPageIndex === 1 ? Styles.pageActiveLine : Styles.pageNormalLine}
                             onClick={() => handlePageClick(1)}
                         ></span>
+                        {
+                            isMobileTo && (
+                                <span
+                                    className={currentPageIndex === 2 ? Styles.pageActiveLine : Styles.pageNormalLine}
+                                    onClick={() => handlePageClick(2)}
+                                ></span>
+                            )
+                        }
                     </div>
                 </div>
-            </div>
+            </div >
 
             {/* Strategic Partners */}
-            <div className={Styles.clientLogoContainer}>
+            < div className={Styles.clientLogoContainer} >
                 <div className={Styles.titleBox}>
                     <h2 className={Styles.mainTitle}>Strategic Partners</h2>
                     <span className={Styles.blueLine}></span>
@@ -776,7 +992,7 @@ const Home = () => {
                             forceToAxis: true
                         }}
                         autoplay={{
-                            delay: 2000,        // 2秒自动切换一页
+                            delay: 20000,        // 2秒自动切换一页
                             disableOnInteraction: false, // 用户拖拽/点击后继续自动轮播
                             pauseOnMouseEnter: true,     // 鼠标悬浮在轮播区域时暂停轮播
                         }}
@@ -785,25 +1001,54 @@ const Home = () => {
                         onSlideChange={onSlideChangeHandler}
                         className={Styles.brandSwiper}
                     >
-                        {/* 单个Slide内：2行4列布局 */}
-                        <SwiperSlide className={Styles.brandSlideWrap}>
-                            <div className={Styles.brandGridBox}>
-                                {strategicList.map((item, idx) => (
-                                    <div key={idx} className={Styles.brandLogoBox}>
-                                        <img src={item.src} className={Styles.logoImg} />
-                                    </div>
-                                ))}
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className={Styles.brandSlideWrap}>
-                            <div className={Styles.brandGridBox}>
-                                {strategicListTo.map((item, idx) => (
-                                    <div key={idx} className={Styles.brandLogoBox}>
-                                        <img src={item.src} className={Styles.logoImg} />
-                                    </div>
-                                ))}
-                            </div>
-                        </SwiperSlide>
+                        {
+                            isMobileTo ? (
+                                <>
+                                    {/* 单个Slide内：2行4列布局 */}
+                                    <SwiperSlide className={Styles.brandSlideWrap}>
+                                        <div className={Styles.brandGridBox}>
+                                            {strategicListThree.map((item, idx) => (
+                                                <div key={idx} className={Styles.brandLogoBox}>
+                                                    <img src={item.src} className={Styles.logoImg} />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide className={Styles.brandSlideWrap}>
+                                        <div className={Styles.brandGridBox}>
+                                            {strategicListFour.map((item, idx) => (
+                                                <div key={idx} className={Styles.brandLogoBox}>
+                                                    <img src={item.src} className={Styles.logoImg} />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </SwiperSlide>
+                                </>
+                            ) : (
+                                <>
+                                    {/* 单个Slide内：2行4列布局 */}
+                                    <SwiperSlide className={Styles.brandSlideWrap}>
+                                        <div className={Styles.brandGridBox}>
+                                            {strategicList.map((item, idx) => (
+                                                <div key={idx} className={Styles.brandLogoBox}>
+                                                    <img src={item.src} className={Styles.logoImg} />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide className={Styles.brandSlideWrap}>
+                                        <div className={Styles.brandGridBox}>
+                                            {strategicListTo.map((item, idx) => (
+                                                <div key={idx} className={Styles.brandLogoBox}>
+                                                    <img src={item.src} className={Styles.logoImg} />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </SwiperSlide>
+                                </>
+                            )
+                        }
+
 
                     </Swiper>
                     {/* 自定义分页指示器 */}
@@ -818,7 +1063,7 @@ const Home = () => {
                         ></span>
                     </div>
                 </div>
-            </div>
+            </div >
             <div className={Styles.footerWrap}>
                 <div className={Styles.footerContent}>
                     {/* 总部信息 */}
@@ -875,7 +1120,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 export default Home;

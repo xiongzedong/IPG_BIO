@@ -136,6 +136,7 @@ const BusinessSegments = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     // 判断是否移动端：宽度≤768
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [isMobileTo, setIsMobileTo] = useState(window.innerWidth <= 414);
     const navList = [
         { title: 'Home', path: '/home' },
         { title: 'Business Segments', path: '/business-segments' },
@@ -146,6 +147,8 @@ const BusinessSegments = () => {
         const handleResize = () => {
             const mobile = window.innerWidth <= 768;
             setIsMobile(mobile);
+            const mobileTo = window.innerWidth <= 414;
+            setIsMobileTo(mobileTo);
             // 切大屏时自动关闭侧边菜单
             if (!mobile) setIsMenuOpen(false);
         };
@@ -288,7 +291,6 @@ const BusinessSegments = () => {
                         </div>
                     )
                 }
-
             </div>
 
             {/* Executive Search */}
@@ -337,14 +339,30 @@ const BusinessSegments = () => {
                                 key={idx}
                                 className={flag ? Styles.advantageCardTo : Styles.advantageCard}
                             >
-                                <div className={Styles.iconBox}>{item.icon}</div>
-                                <div className={Styles.cardTitle}>{item.title}</div>
-                                <div className={Styles.cardDesc}>{item.desc}</div>
+                                {
+                                    isMobileTo ? (
+                                        <div className={Styles.item_warp}>
+                                            <div className={Styles.iconBox}>{item.icon}</div>
+                                            <div className={Styles.cardTitle}>
+                                                <div className={Styles.cardDescTo}> {item.title}</div>
+                                                <div className={Styles.cardDesc}>{item.desc}</div>
+                                            </div>
+
+                                        </div>
+                                    ) : (
+                                        <>
+                                            <div className={Styles.iconBox}>{item.icon}</div>
+                                            <div className={Styles.cardTitle}>{item.title}</div>
+                                            <div className={Styles.cardDesc}>{item.desc}</div>
+                                        </>
+                                    )
+                                }
+
                             </div>
                         );
                     })}
                 </div>
-            </div>
+            </div >
 
             {/* Global HR Solutions */}
             <div className={Styles.sectionWrapThree}>
@@ -397,11 +415,22 @@ const BusinessSegments = () => {
             <div className={Styles.sectionWrapFour}>
                 <div className={Styles.sectionWrapTo_content}>
                     <div className={Styles.sectionLeft}>
-                        <h2 className={Styles.sectionTitle}>
-                            Business Process<br />
-                            <span className={Styles.blueText}>Solutions</span><br />
-                            <span className={Styles.blueText}>（BPO）</span>
-                        </h2>
+                        {
+                            isMobileTo ? (
+                                <h2 className={Styles.sectionTitle}>
+                                    Business Process<br />
+                                    <span className={Styles.blueText}>Solutions</span>
+                                    <span className={Styles.blueText}>（BPO）</span>
+                                </h2>
+                            ) : (
+                                <h2 className={Styles.sectionTitle}>
+                                    Business Process<br />
+                                    <span className={Styles.blueText}>Solutions</span><br />
+                                    <span className={Styles.blueText}>（BPO）</span>
+                                </h2>
+                            )
+                        }
+
                     </div>
                     <div className={Styles.sectionRight}>
                         <div className={Styles.contentText}>
@@ -427,23 +456,62 @@ const BusinessSegments = () => {
 
             {/* 页脚 */}
             <div className={Styles.footerWrap}>
-                <div className={Styles.footerHead}>
-                    <p className={Styles.footerLabel}>Global Headquarters</p>
-                    <p>160 E Tasman Dr #200, San Jose, CA 95134</p>
-                    <p>408.200.9891 | hires@intellipro.com</p>
-                </div>
+                <div className={Styles.footerContent}>
+                    {/* 总部信息 */}
+                    <div className={Styles.footerHeadQuarter}>
+                        <p className={Styles.footerTipLabel}>Global Headquarters</p>
+                        <p className={Styles.footerAddress}>160 E Tasman Dr #200, San Jose, CA 95134</p>
+                        <p className={Styles.footerContact}>408.200.9891 | hires@intellipro.com</p>
+                    </div>
 
-                <div className={Styles.footerOfficeTitle}>Global Offices</div>
-                <div className={Styles.officeGrid}>
-                    {officeList.map((city, idx) => <span key={idx}>{city}</span>)}
-                </div>
+                    {/* 全球办公室列表 */}
+                    <div className={Styles.footerOfficeWrap}>
+                        <p className={Styles.footerTipLabel}>Global Offices</p>
+                        <div className={Styles.officeGrid}>
+                            <span>Silicon Valley</span>
+                            <span>Los Angeles</span>
+                            <span>New York</span>
+                            <span>Seattle</span>
+                            <span>Dallas</span>
+                            <span>Vancouver</span>
+                            <span>Toronto</span>
+                            <span>Montreal</span>
 
-                <div className={Styles.copyrightWrap}>
-                    <span className={Styles.footerLogo}>IntelliPro</span>
-                    <span>© 2026 IntelliPro. All Rights Reserved | Terms of Use | Government Notice</span>
+                            <span>London</span>
+                            <span>Amsterdam</span>
+                            <span>Munich</span>
+                            <span>Krakow</span>
+                            <span>Dublin</span>
+                            <span>Beijing</span>
+                            <span>Shanghai</span>
+                            <span>Hangzhou</span>
+
+                            <span>Shenzhen</span>
+                            <span>Wuhan</span>
+                            <span>Hong Kong</span>
+                            <span>Manila</span>
+                            <span>Singapore</span>
+                            <span>Malaysia</span>
+                            <span>Thailand</span>
+                            <span>Vietnam</span>
+
+                            <span>Indonesia</span>
+                            <span>Philippines</span>
+                            <span>Australia</span>
+                            <span>Chennai</span>
+                            <span>Mexico City</span>
+                            <span>Tokyo</span>
+                        </div>
+                    </div>
+
+                    {/* 底部版权与链接 */}
+                    <div className={Styles.footerCopyright}>
+                        <span className={Styles.footerLogo}>IntelliPro</span>
+                        <span>© 2026 IntelliPro. All Rights Reserved | Terms of Use | Government Notice</span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
