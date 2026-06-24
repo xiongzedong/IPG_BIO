@@ -17,6 +17,7 @@
     display: flex;
     height: 80px;
     align-items: center;
+    padding-right: 32px;
 }
 
 .headerLeft {
@@ -61,13 +62,14 @@
     height: 30.8px;
     margin: 0 19.6px 0 19px;
     background-color: rgba(51, 51, 51, 0.2);
+    display: inline-block;
 }
 
 // ========== Banner区域 ==========
 .connectBanner {
     display: flex;
     width: 100%;
-    min-height: 420px;
+    height: 800px;
 }
 
 .bannerLeft {
@@ -120,7 +122,7 @@
 
 // ========== 总部信息区域 ==========
 .headquartersWrap {
-    padding: 60px 120px 124px 120px
+    padding: 60px 120px 124px 240px
 }
 
 .sectionTitle {
@@ -218,8 +220,8 @@
 
 // ========== 表单区域 ==========
 .formWrap {
-    background: #f7f9fc;
-    padding: 60px 120px;
+    background-color: #f6f9fd;
+    padding: 60px 240px;
 }
 
 .formGrid {
@@ -356,4 +358,541 @@
     font-weight: 600;
     margin-right: 12px;
     color: #fff;
+}
+
+
+
+@media (max-width: 1440px) {
+    .headerLeft {
+        flex: 1;
+        margin-left: 120px;
+        display: flex;
+    }
+
+    .connectBanner {
+        display: flex;
+        width: 100%;
+        height: 800px;
+
+        .bannerLeft {
+            width: 50%;
+            padding: 80px 120px 80px 120px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .headquartersWrap {
+        padding: 60px 120px;
+
+        .hqImgBox {
+            margin: 0 32px 0 0;
+        }
+
+        .hqInfo {
+            position: relative;
+            top: -32px;
+        }
+    }
+
+    .formWrap {
+        background: #f7f9fc;
+        padding: 60px 120px 200px 120px;
+        margin-top: 140px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* 移动端汉堡按钮 414px以下显示 */
+    .hamburgerBtn {
+        display: none;
+        border: none;
+        background: transparent;
+        font-size: 28px;
+        cursor: pointer;
+        padding: 4px 8px;
+
+    }
+
+    /* 遮罩层 */
+    .menuOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 999;
+    }
+
+    /* 右侧抽屉容器 */
+    .drawerWrap {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        background: #fff;
+        padding: 24px;
+        box-sizing: border-box;
+    }
+
+    /* 抽屉头部 */
+    .drawerHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .closeBtn {
+        border: none;
+        background: transparent;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* 移动端侧边导航 */
+    .mobileNav {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin-top: 40px;
+    }
+
+    .mobileNav a {
+        font-size: 18px;
+        color: #333;
+        text-decoration: none;
+    }
+
+    /* 媒体查询：宽度≤414px 移动端样式 */
+    @media screen and (max-width: 1024) {
+        .hamburgerBtn {
+            display: block;
+        }
+    }
+
+    .headerLeft {
+        flex: 1;
+        margin-left: 32px;
+        display: flex;
+    }
+
+    .connectBanner {
+        display: flex;
+        width: 100%;
+        height: 648px;
+
+        .bannerLeft {
+            width: 50%;
+            padding: 240px 32px 80px 32px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .headquartersWrap {
+        padding: 60px 32px;
+
+        .hqImgBox {
+            margin: 0 32px 0 0;
+        }
+
+        .hqInfo {
+            position: relative;
+            top: -32px;
+        }
+    }
+
+    .formWrap {
+        background: #f7f9fc;
+        padding: 60px 32px 200px 32px;
+        margin-top: 130px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* 移动端汉堡按钮 414px以下显示 */
+    .hamburgerBtn {
+        display: none;
+        border: none;
+        background: transparent;
+        font-size: 28px;
+        cursor: pointer;
+        padding: 4px 8px;
+    }
+
+    /* 遮罩层 */
+    .menuOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 999;
+    }
+
+    /* 右侧抽屉容器 */
+    .drawerWrap {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        background: #fff;
+        padding: 24px;
+        box-sizing: border-box;
+    }
+
+    /* 抽屉头部 */
+    .drawerHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .closeBtn {
+        border: none;
+        background: transparent;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* 移动端侧边导航 */
+    .mobileNav {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin-top: 40px;
+    }
+
+    .mobileNav a {
+        font-size: 18px;
+        color: #333;
+        text-decoration: none;
+    }
+
+    /* 媒体查询：宽度≤414px 移动端样式 */
+    @media screen and (max-width: 768px) {
+        .hamburgerBtn {
+            display: block;
+        }
+    }
+
+    .headerLeft {
+        flex: 1;
+        margin-left: 24px;
+        display: flex;
+
+    }
+
+    .connectBanner {
+        display: flex;
+        width: 100%;
+        height: 480px;
+
+        .bannerLeft {
+            width: 50%;
+            padding: 150px 24px 80px 24px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .headquartersWrap {
+        padding: 60px 24px;
+
+        .hqImgBox {
+            margin: 0 24px 0 0;
+        }
+
+        .hqInfo {
+            position: relative;
+            top: -32px;
+        }
+    }
+
+    .formWrap {
+        background: #f7f9fc;
+        padding: 60px 24px 80px 24px;
+        margin-top: 67px;
+
+        .submitBtn {
+            font-size: 24px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            text-align: center;
+            color: #fff;
+        }
+    }
+}
+
+@media (max-width: 414px) {
+    .connectBannerTo {
+        .bannerLeftTo {
+            .connectTitleTo {
+                font-size: 32px;
+                font-weight: 900;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 32px;
+                letter-spacing: 0.32px;
+                text-align: left;
+                color: #000;
+                margin-top: 60px;
+                margin-bottom: 80px;
+                padding: 0 0 0 24px;
+            }
+        }
+
+        .bannerRightTo {
+            width: 414px;
+            height: 288px;
+
+            .bannerImgTo {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .headquartersWrapTo {
+        margin-top: 80px;
+        padding: 0 24px 98px 24px;
+
+        .sectionTitleTo {
+            font-size: 32px;
+            font-weight: 900;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 32px;
+            letter-spacing: 0.32px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .hqImgBoxTo {
+            width: 366px;
+            height: 183px;
+            margin: 0 0 32px;
+
+            .hqImgTo {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .hqCityTo {
+            font-size: 32px;
+            font-weight: 900;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 32px;
+            letter-spacing: 0.32px;
+            color: #333;
+            margin-bottom: 24px;
+        }
+
+        .hqTextTo {
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 20px;
+            letter-spacing: 0.8px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .mapLinkTo {
+            font-size: 16px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 16px;
+            letter-spacing: 0.32px;
+            color: #377ded;
+            margin-top: 24px;
+        }
+    }
+
+    .formWrapTo {
+        background-color: #f6f9fd;
+        padding: 60px 24px;
+
+        .sectionTitleTo {
+            font-size: 32px;
+            font-weight: 900;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 32px;
+            letter-spacing: 0.32px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .formGridTo {
+            display: grid;
+            grid-template-columns: -1fr 1fr;
+            gap: 24px;
+        }
+
+        .formItemTo {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .formItemFullTo {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .formLabelTo {
+            font-size: 16px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.32px;
+            color: #000;
+        }
+
+        .requiredTo {
+            color: #f5222d;
+        }
+
+        .formInputTo {
+            height: 42px;
+            border: 1px solid #dcdcdc;
+            padding: 0 12px;
+            border-radius: 2px;
+            font-size: 14px;
+            outline: none;
+
+            &:focus {
+                border-color: #2b78e4;
+            }
+        }
+
+        .inputErrorTo {
+            height: 42px;
+            border: 1px solid #f5222d;
+            padding: 0 12px;
+            border-radius: 2px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .formTextareaTo {
+            min-height: 160px;
+            border: 1px solid #dcdcdc;
+            padding: 12px;
+            font-size: 14px;
+            resize: none;
+            outline: none;
+
+            &:focus {
+                border-color: #2b78e4;
+            }
+        }
+
+        .submitWrapTo {
+            grid-column: 1 / -1;
+            margin-top: 16px;
+        }
+
+        .submitBtnTo {
+            width: 240px;
+            height: 64px;
+            background: #2b78e4;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            transition: background 0.3s;
+
+            &:hover {
+                background: #1d67cc;
+            }
+        }
+    }
+
+     .footerWrap {
+        background-color: #333333;
+        color: #cccccc;
+        padding: 60px 20px 40px;
+        margin-top: 80px;
+
+        .footerContent {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footerTipLabel {
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.8px;
+            color: #999;
+            margin: 0 0 16px;
+        }
+
+        .footerHeadQuarter {
+            margin-bottom: 40px;
+
+            .footerAddress,
+            .footerContact {
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #fff;
+                margin: 8px 0;
+            }
+        }
+
+        .footerOfficeWrap {
+            margin-bottom: 40px;
+
+            .officeGrid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px 8px;
+                width: 100%;
+                box-sizing: border-box;
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #f8f8f8;
+            }
+        }
+
+        .footerCopyright {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 16px;
+
+            .footerLogo {
+                color: #ffffff;
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+    }
 }
