@@ -3032,50 +3032,109 @@
         padding-right: 18px;
         margin-bottom: 130px;
 
+        .advantageTitle {
+            font-size: 24px;
+            font-weight: 900;
+            font-stretch: normal;
+            font-style: normal;
+            color: #333;
+            display: flex;
+
+            .advantageTitle_icon {
+                display: inline-block;
+                width: 70%;
+                height: 1.3px;
+                margin: 31.8px 0 31.1px 15.8px;
+                background-color: #e0eaf8;
+                position: relative;
+                top: 6px;
+            }
+        }
+
         .flexibleGrid {
             grid-column: 1 / -1;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-        }
 
-        .advantageCardTo {
-            width: 357px;
-            height: 399px;
-            padding-bottom: 20px;
+            .advantageCard {
+                width: 357px;
+                height: 399px;
+                background-color: #f6f9fd;
 
-            .iconBox {
-                background: #f0f7ff;
-                border-radius: 8px;
-                padding: 40px 0px 40px 40px;
-                width: 64px;
-                height: 64px;
+                .iconBox {
+                    background: #f0f7ff;
+                    border-radius: 8px;
+                    padding: 54px 0px 37px 43px;
+
+                }
+
+                .cardTitle {
+                    font-size: 32px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.33;
+                    letter-spacing: 0.24px;
+                    color: #333;
+                    padding-left: 43px;
+                }
+
+                .cardDesc {
+                    font-size: 32px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    letter-spacing: 0.8px;
+                    color: #333;
+                    margin-top: 15px;
+                    padding-left: 43px;
+                    line-height: 38px;
+                }
             }
 
-            .cardTitle {
-                font-size: 32px;
-                font-weight: 900;
-                font-stretch: normal;
-                font-style: normal;
-                color: #333;
-                padding-left: 32px;
-            }
+            .advantageCardTo {
+                width: 357px;
+                height: 399px;
+                background-color: #f6f9fd;
 
-            .cardDesc {
-                font-family: SofiaPro;
-                font-size: 32px;
-                font-weight: 900;
-                font-stretch: normal;
-                font-style: normal;
-                color: #333;
-                padding-left: 32px;
+                .iconBox {
+                    background: #f0f7ff;
+                    border-radius: 8px;
+                    padding: 54px 0px 37px 43px;
+
+                }
+
+                .cardTitle {
+                    font-size: 32px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.33;
+                    letter-spacing: 0.24px;
+                    color: #333;
+                    padding-left: 43px;
+                }
+
+                .cardDesc {
+                    font-size: 32px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    letter-spacing: 0.8px;
+                    color: #333;
+                    margin-top: 15px;
+                    padding-left: 43px;
+                    line-height: 38px;
+                }
             }
         }
 
         .advantageCard {
-            width: 357px;
-            height: 368px;
-            max-height: 450px;
+            width: 305px;
+            height: 450px;
             background-color: #f6f9fd;
 
             .iconBox {
@@ -3087,21 +3146,26 @@
             }
 
             .cardTitle {
+                font-family: SofiaPro;
                 font-size: 32px;
                 font-weight: 900;
                 font-stretch: normal;
                 font-style: normal;
-                color: #333;
+                letter-spacing: 0.24px;
                 padding-left: 32px;
             }
 
             .cardDesc {
                 font-family: SofiaPro;
                 font-size: 32px;
-                font-weight: 900;
+                font-weight: normal;
                 font-stretch: normal;
                 font-style: normal;
+                letter-spacing: 0.8px;
                 color: #333;
+                margin-top: 15px;
+                padding-left: 32px;
+                line-height: 38px;
             }
         }
 
@@ -3109,9 +3173,10 @@
             display: flex;
             justify-content: space-around;
             margin-bottom: 66px;
+            flex-direction: column;
 
             .sectionLeft {
-                width: 50%;
+                width: 100%;
             }
 
             .sectionRight {
@@ -3121,9 +3186,61 @@
                 font-weight: normal;
                 font-stretch: normal;
                 font-style: normal;
-                line-height: 1.6;
                 letter-spacing: 0.8px;
                 color: #5c5e6b;
+                margin-top: 32px;
+            }
+        }
+
+        .sectionTitle {
+            font-size: 36px;
+            line-height: 1.2;
+            margin: 0;
+
+            .blueText {
+                color: #1677ff;
+            }
+        }
+
+        .contentText {
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+        }
+
+
+    }
+
+    .sectionWrapThree {
+        padding-left: 24px;
+        padding-right: 24px;
+        margin-bottom: 166px;
+
+        .sectionWrapTo_content {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            margin-bottom: 66px;
+
+            .sectionLeft {
+                width: 100%;
+            }
+
+            .sectionRight {
+                width: 100%;
+                text-align: right;
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: 0.8px;
+                color: #5c5e6b;
+                margin-top: 32px;
             }
         }
 
@@ -3154,21 +3271,177 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
 
-            .textList {
-                font-size: 12px;
-                font-weight: normal;
-                font-stretch: normal;
-                font-style: normal;
-                color: #5c5e6b;
+            .cardHead {
+                height: 165px;
+                background-image: linear-gradient(113deg, #377ded, #5b9ff8);
+                color: #fff;
+                border-radius: 21.4px 21.4px 0px 0px;
+
+
+                .cardHead_text {
+                    font-size: 42.4px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    letter-spacing: 0.42px;
+                    color: #fff;
+                    padding: 20px 20px 0px 20px;
+                }
+
+                .cardHead_text_to {
+                    font-size: 18.2px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    letter-spacing: 0.18px;
+                    color: rgba(255, 255, 255, 0.85);
+                    padding: 00px 20px 0px 20px;
+                }
+            }
+
+            .cardHeadTo {
+                height: 165px;
+                border-radius: 21.4px;
+                box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+                background-image: linear-gradient(113deg, #4b5563, #6b7280);
+                color: #fff;
+                border-radius: 21.4px 21.4px 0px 0px;
+
+                .cardHead_text {
+                    font-size: 42.4px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    letter-spacing: 0.42px;
+                    color: #fff;
+                    padding: 20px 20px 0px 20px;
+                }
+
+                .cardHead_text_to {
+                    font-size: 18.2px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    letter-spacing: 0.18px;
+                    color: rgba(255, 255, 255, 0.85);
+                    padding: 00px 20px 0px 20px;
+                }
+            }
+
+            .hrCardActive {
+                width: 225px;
+                height: 575px;
+                border-radius: 21.4px;
+                box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+                border: solid 2.7px #377ded;
+                background-color: rgba(255, 255, 255, 0);
+            }
+
+            .hrCardActiveTo {
+                width: 225px;
+                height: 575px;
+                border-radius: 21.4px;
+                box-shadow: 0 10.7px 42.8px 0 rgba(55, 125, 237, 0.12);
+                background-color: rgba(255, 255, 255, 0);
+                border: solid 1.3px #e0eaf8;
+            }
+
+            .cardRow {
+                padding: 20px 20px 15px 20px;
+                background: rgba(255, 255, 255, 0.1);
+                border-bottom: solid 1.3px rgba(0, 0, 0, 0.1);
+
+                .rowLabel {
+                    font-size: 12px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.5;
+                    letter-spacing: 0.73px;
+                    color: #9ca3af;
+                    margin-bottom: 6px;
+                }
+
+                .tagGreen {
+                    font-size: 18px;
+                    font-weight: 600;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.33;
+                    letter-spacing: 0.18px;
+                    color: #16a34a;
+                }
+
+                .tagRed {
+                    font-size: 18px;
+                    font-weight: 600;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.33;
+                    letter-spacing: 0.18px;
+                    color: #ef4444;
+                }
+
+                .tagNormal {
+                    font-size: 18px;
+                    font-weight: 600;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.33;
+                    letter-spacing: 0.24px;
+                    text-align: left;
+                    color: #333;
+                    margin-top: 8px
+                }
+
+                .tagBlue {
+                    font-size: 15px;
+                    padding: 0px 12.3px 0px 12.1px;
+                    border-radius: 22417006px;
+                    background-color: rgba(55, 125, 237, 0.1);
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 39px;
+                    letter-spacing: 0.8px;
+                    color: #377ded;
+                    display: inline-block;
+                }
+
+                .tagBlueTo {
+                    height: 39px;
+                    padding: 0px 12.3px 0px 12.1px;
+                    border-radius: 22417006px;
+                    background-color: #f3f4f6;
+                    font-size: 15px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 39px;
+                    letter-spacing: 0.8px;
+                    color: #4b5563;
+                    display: inline-block;
+                }
+
+                .textList {
+                    font-size: 12px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    letter-spacing: 0.8px;
+                    text-align: left;
+                    color: #5c5e6b;
+                }
 
             }
 
             .tagBlue {
-                height: 25px;
-                padding: 4px 16px;
+                height: 39px;
+                padding: 5.3px 16px 1.7px 16px;
                 border-radius: 22417006px;
                 background-color: rgba(55, 125, 237, 0.1);
-                font-size: 14.2px;
+                font-size: 20px;
                 font-weight: bold;
                 font-stretch: normal;
                 font-style: normal;
@@ -3179,11 +3452,11 @@
             }
 
             .tagBlueTo {
-                height: 25px;
-                padding: 4px 16px;
+                height: 39px;
+                padding: 5.3px 16px 1.7px 16px;
                 border-radius: 22417006px;
                 background-color: #f3f4f6;
-                font-size: 14.2px;
+                font-size: 20px;
                 font-weight: bold;
                 font-stretch: normal;
                 font-style: normal;
@@ -3192,6 +3465,143 @@
                 color: #4b5563;
                 display: inline-block;
             }
+
+            .hrCardActive .cardRow:last-of-type,
+            .hrCardActiveTo .cardRow:last-of-type {
+                border-bottom: none;
+            }
         }
     }
+
+    .sectionWrapFour {
+        padding-left: 24px;
+        padding-right: 17px;
+        margin-bottom: 0px;
+        .sectionWrapTo_content {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 66px;
+            flex-direction: column;
+
+            .sectionLeft {
+                width: 100%;
+            }
+
+            .sectionRight {
+                width: 100%;
+                text-align: right;
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.6;
+                letter-spacing: 0.8px;
+                color: #5c5e6b;
+                margin-top: 15px;
+            }
+        }
+
+        .bpoGrid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+
+            .advantageCardTo {
+                width: 305px;
+                height: 450px;
+                background-color: #f6f9fd;
+
+                .iconBox {
+                    background: #f0f7ff;
+                    border-radius: 8px;
+                    padding: 54px 0px 37px 43px;
+
+                }
+
+                .cardTitle {
+                    font-size: 24px;
+                    font-weight: 900;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.33;
+                    letter-spacing: 0.24px;
+                    color: #333;
+                    padding-left: 43px;
+                }
+
+                .cardDesc {
+                    font-size: 20px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    letter-spacing: 0.8px;
+                    color: #333;
+                    margin-top: 15px;
+                    padding-left: 43px;
+                }
+            }
+        }
+    }
+
+
+    .footerWrap {
+        background: #333;
+        color: #ccc;
+        padding: 60px;
+        margin-top: 40px;
+
+        .footerHead {
+            margin-bottom: 30px;
+
+            .footerLabel {
+                color: #aaa;
+                margin-bottom: 12px;
+            }
+
+            p {
+                margin: 6px 0;
+                font-size: 17px;
+            }
+        }
+
+        .footerOfficeTitle {
+            color: #aaa;
+            margin-bottom: 16px;
+        }
+
+        .officeGrid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px 8px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.8px;
+            color: #f8f8f8;
+            margin-bottom: 69px;
+
+            span {
+                font-size: 16px;
+            }
+        }
+
+        .copyrightWrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+
+            .footerLogo {
+                color: #fff;
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+    }
+
 }

@@ -117,23 +117,6 @@ const bpoAdvantageList = [
         desc: 'Customizable workflow management tailored to your operational needs'
     }
 ]
-const bpoAdvantageListTo = [
-    {
-        icon: <Adv7 />,
-        title: 'Comprehensive Skills Training',
-        desc: 'Ongoing training programs to keep your team sharp and effective'
-    },
-    {
-        icon: <Adv8 />,
-        title: 'Customer Knowledge Base Development',
-        desc: 'Structured knowledge base development for seamless customer support'
-    },
-    {
-        icon: <Adv9 />,
-        title: 'Specialized & Customizable Workflow Management',
-        desc: 'Customizable workflow management tailored to your operational needs'
-    }
-]
 
 // 全球办公室
 const officeList = [
@@ -440,15 +423,6 @@ const BusinessSegments = () => {
                         </div>
                     ))}
                 </div>
-                {/* <div className={Styles.bpoGrid}>
-                    {bpoAdvantageListTo.map((item, idx) => (
-                        <div key={idx} className={Styles.advantageCardTo}>
-                            <div className={Styles.iconBox}>{item.icon}</div>
-                            <div className={Styles.cardTitle}>{item.title}</div>
-                            <div className={Styles.cardDesc}>{item.desc}</div>
-                        </div>
-                    ))}
-                </div> */}
             </div>
 
             {/* 页脚 */}
