@@ -205,6 +205,16 @@ $textDark: #222;
 
     .sectionRight {
         flex: 1;
+        .aboutText {
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #5c5e6b;
+        }
     }
 
     .blueText {
@@ -256,7 +266,7 @@ $light-gray: #e5e7eb;
             max-width: 550px;
 
             .descTip {
-                font-size: 16px;
+                font-size: 20px;
                 color: $text-gray;
                 line-height: 1.6;
             }
@@ -558,10 +568,10 @@ $text-gray: #555555;
     .cardContainer {
         display: flex;
         flex-wrap: wrap;
-        gap: 24px;
+        gap: 15px;
 
         .businessCard {
-            width: 697px;
+            width: 689px;
             height: 578px;
             border-radius: 33.6px;
             box-shadow: 0 4.2px 16.8px 0 rgba(0, 0, 0, 0.04);
@@ -654,9 +664,6 @@ $text-gray: #555555;
         }
     }
 }
-
-
-
 
 .clientLogoContainer {
     padding: 0px 240px 0px 240px;

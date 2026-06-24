@@ -3,7 +3,7 @@ import { Button, message, Spin, Image } from 'antd';
 import Styles from './index.module.scss'
 // 引入Swiper核心
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Scrollbar, Mousewheel, Autoplay } from 'swiper/modules'
+import { Scrollbar, Mousewheel, Autoplay,Pagination  } from 'swiper/modules'
 import { Link, useLocation } from 'react-router-dom'
 import CountUp from 'react-countup'
 import 'swiper/css'
@@ -882,7 +882,7 @@ const Home = () => {
                             forceToAxis: true
                         }}
                         autoplay={{
-                            delay: 200000,        // 2秒自动切换一页
+                            delay: 2000,        // 2秒自动切换一页
                             disableOnInteraction: false, // 用户拖拽/点击后继续自动轮播
                             pauseOnMouseEnter: true,     // 鼠标悬浮在轮播区域时暂停轮播
                         }}
@@ -992,7 +992,7 @@ const Home = () => {
                             forceToAxis: true
                         }}
                         autoplay={{
-                            delay: 20000,        // 2秒自动切换一页
+                            delay: 2000,        // 2秒自动切换一页
                             disableOnInteraction: false, // 用户拖拽/点击后继续自动轮播
                             pauseOnMouseEnter: true,     // 鼠标悬浮在轮播区域时暂停轮播
                         }}
