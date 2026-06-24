@@ -3,7 +3,7 @@ import { Button, message, Spin, Image } from 'antd';
 import Styles from './index.module.scss'
 // 引入Swiper核心
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Scrollbar, Mousewheel, Autoplay,Pagination  } from 'swiper/modules'
+import { Scrollbar, Mousewheel, Autoplay, Pagination } from 'swiper/modules'
 import { Link, useLocation } from 'react-router-dom'
 import CountUp from 'react-countup'
 import 'swiper/css'
@@ -415,9 +415,12 @@ const Home = () => {
                         spaceBetween={0}
                         scrollbar={{ draggable: true, hide: false }}
                         mousewheel={{
-                            horizontal: true,
-                            forceToAxis: true
+                            forceToAxis: false,
+                            invert: true,
+                            releaseOnEdges: false,
+                            sensitivity: 1
                         }}
+
                         onSlideChange={handleSlideChange}
                         onSwiper={(swiper) => swiperRef.current = swiper}
                         className={Styles.yearSwiper}
