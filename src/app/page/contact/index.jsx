@@ -102,7 +102,6 @@ const Contact = () => {
     }
     // 表单提交校验
     const handleSubmit = () => {
-        debugger
         // ===== 新增：拦截和上一次提交内容完全相同的表单 =====
         if (isSameFormData(lastSubmitDataRef.current, formData)) {
             message.warning('请勿重复提交完全相同的表单内容，请修改信息后再次提交');
