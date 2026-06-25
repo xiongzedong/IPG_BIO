@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { message } from 'antd';
-import { ArrowDownOutlined, EnvironmentOutlined, CheckCircleOutlined } from '@ant-design/icons';
+import { message, Spin } from 'antd';
+import { ArrowDownOutlined, EnvironmentOutlined, CheckCircleOutlined, EditOutlined } from '@ant-design/icons';
 import Styles from './index.module.scss'
 import { Link, useLocation } from 'react-router-dom'
 // 顶部logo图标（沿用你现有Home页面svg）
@@ -15,7 +15,6 @@ const Contact = () => {
     const location = useLocation()
     // 绑定表单区域DOM，用于滚动定位
     const formWrapRef = useRef(null);
-    const [submitLoading, setSubmitLoading] = useState(false);
     // 控制侧边菜单显示隐藏
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     // 判断是否移动端：宽度≤768
@@ -23,6 +22,9 @@ const Contact = () => {
     const [isMobileTo, setIsMobileTo] = useState(window.innerWidth <= 414);
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const lastSubmitDataRef = useRef(null);
+    const [isLoading, setIsLoading] = useState(false)
+    const [submitLoading, setSubmitLoading] = useState(false)
+    const [isCount, setIsCount] = useState(false)
     const herderList = [
         { title: 'Home', path: '/home' },
         { title: 'Business Segments', path: '/business-segments' },
@@ -39,6 +41,21 @@ const Contact = () => {
         phoneMaxLen: 20,
         messageMaxLen: 5000
     }
+
+    // ========== 新增：监听路由hash，匹配 #get-in-touch 自动滚动 ==========
+    useEffect(() => {
+        if (location.hash === '#get-in-touch' && formWrapRef.current) {
+            setTimeout(() => {
+                // 平滑滚动到表单区域
+                formWrapRef.current.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                })
+                // 清除URL中的 #get-in-touch，不新增历史记录、不刷新页面
+                window.history.replaceState({}, document.title, location.pathname)
+            }, 150)
+        }
+    }, [location.hash])
 
     // 监听窗口尺寸变化
     useEffect(() => {
@@ -101,7 +118,8 @@ const Contact = () => {
         )
     }
     // 表单提交校验
-    const handleSubmit = () => {
+    const handleSubmit = (status) => {
+        debugger
         // ===== 新增：拦截和上一次提交内容完全相同的表单 =====
         if (isSameFormData(lastSubmitDataRef.current, formData)) {
             message.warning('请勿重复提交完全相同的表单内容，请修改信息后再次提交');
@@ -162,17 +180,21 @@ const Contact = () => {
         if (hasError) {
             return
         }
-
-
+        setSubmitLoading(true)
+        if (status === 'edit') {
+            setIsLoading(true)
+        }
         let params = {
             firstName: formData.firstName,
             lastName: formData.lastName,
             email: formData.email,
             phoneNumber: formData.phoneNumber,
-            message: formData.message
+            message: formData.message,
+            correctionSubmit: status === 'edit' ? true : false
         }
         getContactFromSubmit(params)
             .then((res) => {
+                setIsCount(true)
                 setSubmitSuccess(true);
                 lastSubmitDataRef.current = { ...formData };
             })
@@ -180,7 +202,9 @@ const Contact = () => {
                 message.error(err?.message)
             })
             .finally(() => {
-
+                setIsCount(true)
+                setIsLoading(false)
+                setSubmitLoading(false)
             })
         // setFormData({
         //     firstName: '',
@@ -189,6 +213,10 @@ const Contact = () => {
         //     phoneNumber: '',
         //     message: ''
         // })
+    }
+
+    const handleEdit = () => {
+        handleSubmit('edit')
     }
 
     // 点击Contact Us 平滑滚动到表单区域
@@ -205,14 +233,16 @@ const Contact = () => {
     const openMenu = () => setIsMenuOpen(true);
     // 关闭侧边菜单
     const closeMenu = () => setIsMenuOpen(false);
-    console.log('isMobile', isMobile, isMobileTo)
+    console.log('isCount', isCount)
     return (
         <div className={Styles.wrap}>
             <div className={Styles.header}>
                 <div className={Styles.headerLeft}>
-                    <Home1 />
-                    <span className={Styles.headerLeft_icon}></span>
-                    <Home2 />
+                    <Link to="/home" style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+                        <Home1 />
+                        <span className={Styles.headerLeft_icon}></span>
+                        <Home2 />
+                    </Link>
                 </div>
                 {!isMobile && (
                     <div className={Styles.headerRight}>
@@ -365,7 +395,7 @@ const Contact = () => {
 
             {
                 !isMobileTo ? (
-                    <div className={Styles.formWrap} ref={formWrapRef}>
+                    <div className={Styles.formWrap} ref={formWrapRef} id="get-in-touch">
                         <h2 className={Styles.sectionTitle}>Get In Touch</h2>
                         {
                             submitSuccess && (
@@ -433,10 +463,38 @@ const Contact = () => {
                                 <p className={Styles.countTip}>{formData.message.length}/{rules.messageMaxLen}</p>
                                 {formError.message.status && <p className={Styles.errorTip}>{formError.message.msg}</p>}
                             </div>
-                            <div className={Styles.submitWrap}>
-                                <button onClick={handleSubmit} className={Styles.submitBtn}>Submit</button>
-                            </div>
+                            {
+                                !isCount && (
+                                    <div className={Styles.submitWrap}>
+                                        <button onClick={handleSubmit} className={Styles.submitBtn}>
+                                            {
+                                                submitLoading ? <Spin style={{ color: 'white' }} /> : 'Submit'
+                                            }
+                                        </button>
+                                    </div>
+                                )
+                            }
+
                         </div>
+                        {
+                            isCount && (
+                                <div className={Styles.editBar}>
+                                    <span className={Styles.editIcon}><EditOutlined /></span>
+                                    <div className={Styles.editText}>Need To Make Changes? Update And Resubmit Below.</div>
+                                    <button onClick={handleEdit} className={Styles.editBtn}>
+                                        {
+                                            isLoading ? (
+                                                <Spin style={{ color: 'white' }} />
+                                            ) : (
+                                                'Edit'
+                                            )
+                                        }
+
+                                    </button>
+                                </div>
+                            )
+                        }
+
                     </div>
                 ) : (
                     <div className={Styles.formWrapTo} ref={formWrapRef}>
@@ -507,10 +565,38 @@ const Contact = () => {
                                 <p className={Styles.countTipTo}>{formData.message.length}/{rules.messageMaxLen}</p>
                                 {formError.message.status && <p className={Styles.errorTipTo}>{formError.message.msg}</p>}
                             </div>
-                            <div className={Styles.submitWrapTo}>
-                                <button onClick={handleSubmit} className={Styles.submitBtnTo}>Submit</button>
-                            </div>
+                            {
+                                !isCount && (
+                                    <div className={Styles.submitWrap}>
+                                        <button onClick={handleSubmit} className={Styles.submitBtn}>
+                                            {
+                                                submitLoading ? <Spin style={{ color: 'white' }} /> : 'Submit'
+                                            }
+                                        </button>
+                                    </div>
+                                )
+                            }
+
+
                         </div>
+                        {
+                            isCount && (
+                                <div className={Styles.editBar}>
+                                    <span className={Styles.editIcon}><EditOutlined /></span>
+                                    <div className={Styles.editText}>Need To Make Changes? Update And Resubmit Below.</div>
+                                    <button onClick={handleEdit} className={Styles.editBtn}>
+                                        {
+                                            isLoading ? (
+                                                <Spin style={{ color: 'white' }} />
+                                            ) : (
+                                                'Edit'
+                                            )
+                                        }
+
+                                    </button>
+                                </div>
+                            )
+                        }
                     </div>
                 )
             }

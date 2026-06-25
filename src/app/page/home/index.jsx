@@ -231,14 +231,15 @@ const Home = () => {
     const handlePageClick = (index) => {
         swiperInstance?.slideTo(index);
     };
-    console.log('isMobile', isMobile)
     return (
         <div className={Styles.wrap}>
             <div className={Styles.header}>
                 <div className={Styles.headerLeft}>
-                    <Home1 />
-                    <span className={Styles.headerLeft_icon}></span>
-                    <Home2 />
+                    <Link to="/home" style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+                        <Home1 />
+                        <span className={Styles.headerLeft_icon}></span>
+                        <Home2 />
+                    </Link>
                 </div>
                 {!isMobile && (
                     <div className={Styles.headerRight}>
@@ -310,8 +311,10 @@ const Home = () => {
                                     Expert Insights Worldwide.
                                 </div>
                                 <div className={Styles.btnGroup}>
-                                    <button className={Styles.btnPrimary}>Talk To Us</button>
-                                    <button className={Styles.btnOutline}>Explore Services</button>
+                                    <Link to="/contact#get-in-touch">
+                                        <button className={Styles.btnPrimary}>Talk To Us</button>
+                                    </Link>
+                                    {/* <button className={Styles.btnOutline}>Explore Services</button> */}
                                 </div>
                             </>
                         )

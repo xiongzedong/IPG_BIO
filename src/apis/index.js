@@ -44,37 +44,6 @@ function _handleResponseToText(response) {
     );
 }
 
-//文件类型
-function _handleResponseToBlob(response) {
-    if (response && !response.ok) {
-        if (response.status >= 500) {
-            throw {
-                status: response.status,
-                statusText: response.statusText,
-            };
-        }
-
-        if (response.status >= 400) {
-            return response.json().then(
-                (data) => {
-                    data.status = response.status;
-                    data.statusText = response.statusText;
-                    return Promise.reject(data);
-                },
-                () =>
-                    Promise.reject({
-                        status: response.status,
-                        statusText: response.statusText,
-                    })
-            );
-        }
-    }
-    let headers = response.headers;
-    return response.blob().then(
-        (blob) => ({ response: blob, headers: headers }),
-        () => 'OK'
-    );
-}
 //Json类型
 export const _handleResponseToJson = (response) => {
     if (response && !response.ok) {

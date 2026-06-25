@@ -167,9 +167,11 @@ const BusinessSegments = () => {
             {/* 头部导航 */}
             <div className={Styles.header}>
                 <div className={Styles.headerLeft}>
-                    <Home1 />
-                    <span className={Styles.headerLeft_icon}></span>
-                    <Home2 />
+                  <Link to="/home" style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+                        <Home1 />
+                        <span className={Styles.headerLeft_icon}></span>
+                        <Home2 />
+                    </Link>
                 </div>
                 {!isMobile && (
                     <div className={Styles.headerRight}>
