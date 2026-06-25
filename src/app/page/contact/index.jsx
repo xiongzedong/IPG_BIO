@@ -9,13 +9,13 @@ import { ReactComponent as Home2 } from '../../assets/home2.svg'
 // 总部办公楼图片
 import contact1 from '../../assets/contact1.png'
 import contact2 from '../../assets/contact2.jpg'
-
+import { getContactFromSubmit } from '../.../../../../apis/contact'
 
 const Contact = () => {
     const location = useLocation()
     // 绑定表单区域DOM，用于滚动定位
     const formWrapRef = useRef(null);
-
+    const [submitLoading, setSubmitLoading] = useState(false);
     // 控制侧边菜单显示隐藏
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     // 判断是否移动端：宽度≤768
@@ -26,6 +26,17 @@ const Contact = () => {
         { title: 'Business Segments', path: '/business-segments' },
         { title: 'Contact', path: '/contact' }
     ]
+
+    // 校验正则规则
+    const rules = {
+        // 标准邮箱格式
+        emailReg: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+        // 仅允许数字 + + - ( ) 空格
+        phoneReg: /^[0-9+\-() ]+$/,
+        phoneMinLen: 7,
+        phoneMaxLen: 20,
+        messageMaxLen: 5000
+    }
 
     // 监听窗口尺寸变化
     useEffect(() => {
@@ -51,60 +62,112 @@ const Contact = () => {
         message: ''
     })
 
-    // 表单必填校验错误
+    // 表单错误：同时保存错误状态 + 错误文案
     const [formError, setFormError] = useState({
-        firstName: false,
-        lastName: false,
-        email: false,
-        phoneNumber: false,
+        firstName: { status: false, msg: '' },
+        lastName: { status: false, msg: '' },
+        email: { status: false, msg: '' },
+        phoneNumber: { status: false, msg: '' },
+        message: { status: false, msg: '' }
     })
 
     // 输入框变更
     const handleInputChange = (e) => {
         const { name, value } = e.target
+        // 限制Message最大5000字符
+        if (name === 'message' && value.length > rules.messageMaxLen) {
+            return;
+        }
         setFormData(prev => ({ ...prev, [name]: value }))
-        if (formError[name]) {
-            setFormError(prev => ({ ...prev, [name]: false }))
+        // 输入时清空当前字段错误
+        if (formError[name].status) {
+            setFormError(prev => ({
+                ...prev,
+                [name]: { status: false, msg: '' }
+            }))
         }
     }
 
     // 表单提交校验
     const handleSubmit = () => {
         let hasError = false
-        const newError = { ...formError }
+        const newError = {
+            firstName: { status: false, msg: '' },
+            lastName: { status: false, msg: '' },
+            email: { status: false, msg: '' },
+            phoneNumber: { status: false, msg: '' },
+            message: { status: false, msg: '' }
+        }
 
+        // 1. First Name 非空校验
         if (!formData.firstName.trim()) {
-            newError.firstName = true
+            newError.firstName = { status: true, msg: 'First Name is required' }
             hasError = true
         }
+
+        // 2. Last Name 非空校验
         if (!formData.lastName.trim()) {
-            newError.lastName = true
+            newError.lastName = { status: true, msg: 'Last Name is required' }
             hasError = true
         }
+
+        // 3. Email 非空 + 邮箱格式校验
         if (!formData.email.trim()) {
-            newError.email = true
+            newError.email = { status: true, msg: 'Email is required' }
+            hasError = true
+        } else if (!rules.emailReg.test(formData.email.trim())) {
+            newError.email = { status: true, msg: 'Please enter a valid email address' }
             hasError = true
         }
-        if (!formData.phoneNumber.trim()) {
-            newError.phoneNumber = true
+
+        // 4. Phone Number 非空 + 格式 + 长度校验
+        const phoneVal = formData.phoneNumber.trim()
+        if (!phoneVal) {
+            newError.phoneNumber = { status: true, msg: 'Phone Number is required' }
+            hasError = true
+        } else if (!rules.phoneReg.test(phoneVal)) {
+            newError.phoneNumber = { status: true, msg: 'Only numbers, + - ( ) and spaces are allowed' }
+            hasError = true
+        } else if (phoneVal.length < rules.phoneMinLen || phoneVal.length > rules.phoneMaxLen) {
+            newError.phoneNumber = { status: true, msg: `Phone number must be ${rules.phoneMinLen}-${rules.phoneMaxLen} characters` }
+            hasError = true
+        }
+
+        // 5. Message 最大字符校验
+        if (formData.message.length > rules.messageMaxLen) {
+            newError.message = { status: true, msg: `Message cannot exceed ${rules.messageMaxLen} characters` }
             hasError = true
         }
 
         setFormError(newError)
 
         if (hasError) {
-            message.warning('Please fill in all required fields')
             return
         }
-
-        message.success('Message submitted successfully! We will contact you soon.')
-        setFormData({
-            firstName: '',
-            lastName: '',
-            email: '',
-            phoneNumber: '',
-            message: ''
+        let params = {
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            phoneNumber: formData.phoneNumber,
+            message: formData.message
+        }
+        getContactFromSubmit(params)
+        .then((res) => {
+            console.log('res',res)
         })
+        .catch((err) => {
+            console.log('err',err)
+        })
+        .finally(() => {
+            
+        })
+        // setFormData({
+        //     firstName: '',
+        //     lastName: '',
+        //     email: '',
+        //     phoneNumber: '',
+        //     message: ''
+        // })
     }
 
     // 点击Contact Us 平滑滚动到表单区域
@@ -291,8 +354,9 @@ const Contact = () => {
                                     value={formData.firstName}
                                     onChange={handleInputChange}
                                     placeholder="Raymond"
-                                    className={formError.firstName ? Styles.inputError : Styles.formInput}
+                                    className={formError.firstName.status ? Styles.inputError : Styles.formInput}
                                 />
+                                {formError.firstName.status && <p className={Styles.errorTip}>{formError.firstName.msg}</p>}
                             </div>
                             <div className={Styles.formItem}>
                                 <label className={Styles.formLabel}>Last Name <span className={Styles.required}>*</span></label>
@@ -301,8 +365,9 @@ const Contact = () => {
                                     value={formData.lastName}
                                     onChange={handleInputChange}
                                     placeholder="Last Name"
-                                    className={formError.lastName ? Styles.inputError : Styles.formInput}
+                                    className={formError.lastName.status ? Styles.inputError : Styles.formInput}
                                 />
+                                {formError.lastName.status && <p className={Styles.errorTip}>{formError.lastName.msg}</p>}
                             </div>
                             <div className={Styles.formItem}>
                                 <label className={Styles.formLabel}>Email <span className={Styles.required}>*</span></label>
@@ -311,8 +376,9 @@ const Contact = () => {
                                     value={formData.email}
                                     onChange={handleInputChange}
                                     placeholder="Email"
-                                    className={formError.email ? Styles.inputError : Styles.formInput}
+                                    className={formError.email.status ? Styles.inputError : Styles.formInput}
                                 />
+                                {formError.email.status && <p className={Styles.errorTip}>{formError.email.msg}</p>}
                             </div>
                             <div className={Styles.formItem}>
                                 <label className={Styles.formLabel}>Phone Number <span className={Styles.required}>*</span></label>
@@ -321,8 +387,9 @@ const Contact = () => {
                                     value={formData.phoneNumber}
                                     onChange={handleInputChange}
                                     placeholder="Phone Number"
-                                    className={formError.phoneNumber ? Styles.inputError : Styles.formInput}
+                                    className={formError.phoneNumber.status ? Styles.inputError : Styles.formInput}
                                 />
+                                {formError.phoneNumber.status && <p className={Styles.errorTip}>{formError.phoneNumber.msg}</p>}
                             </div>
                             <div className={Styles.formItemFull}>
                                 <label className={Styles.formLabel}>Message</label>
@@ -332,7 +399,10 @@ const Contact = () => {
                                     onChange={handleInputChange}
                                     placeholder="Please put your message here..."
                                     className={Styles.formTextarea}
+                                    maxLength={rules.messageMaxLen}
                                 />
+                                <p className={Styles.countTip}>{formData.message.length}/{rules.messageMaxLen}</p>
+                                {formError.message.status && <p className={Styles.errorTip}>{formError.message.msg}</p>}
                             </div>
                             <div className={Styles.submitWrap}>
                                 <button onClick={handleSubmit} className={Styles.submitBtn}>Submit</button>
@@ -350,8 +420,9 @@ const Contact = () => {
                                     value={formData.firstName}
                                     onChange={handleInputChange}
                                     placeholder="Raymond"
-                                    className={formError.firstName ? Styles.inputErrorTo : Styles.formInputTo}
+                                    className={formError.firstName.status ? Styles.inputErrorTo : Styles.formInputTo}
                                 />
+                                {formError.firstName.status && <p className={Styles.errorTipTo}>{formError.firstName.msg}</p>}
                             </div>
                             <div className={Styles.formItemTo}>
                                 <label className={Styles.formLabelTo}>Last Name <span className={Styles.requiredTo}>*</span></label>
@@ -360,8 +431,9 @@ const Contact = () => {
                                     value={formData.lastName}
                                     onChange={handleInputChange}
                                     placeholder="Last Name"
-                                    className={formError.lastName ? Styles.inputErrorTo : Styles.formInputTo}
+                                    className={formError.lastName.status ? Styles.inputErrorTo : Styles.formInputTo}
                                 />
+                                {formError.lastName.status && <p className={Styles.errorTipTo}>{formError.lastName.msg}</p>}
                             </div>
                             <div className={Styles.formItemTo}>
                                 <label className={Styles.formLabelTo}>Email <span className={Styles.requiredTo}>*</span></label>
@@ -370,8 +442,9 @@ const Contact = () => {
                                     value={formData.email}
                                     onChange={handleInputChange}
                                     placeholder="Email"
-                                    className={formError.email ? Styles.inputErrorTo : Styles.formInputTo}
+                                    className={formError.email.status ? Styles.inputErrorTo : Styles.formInputTo}
                                 />
+                                {formError.email.status && <p className={Styles.errorTipTo}>{formError.email.msg}</p>}
                             </div>
                             <div className={Styles.formItemTo}>
                                 <label className={Styles.formLabelTo}>Phone Number <span className={Styles.requiredTo}>*</span></label>
@@ -380,8 +453,9 @@ const Contact = () => {
                                     value={formData.phoneNumber}
                                     onChange={handleInputChange}
                                     placeholder="Phone Number"
-                                    className={formError.phoneNumber ? Styles.inputErrorTo : Styles.formInputTo}
+                                    className={formError.phoneNumber.status ? Styles.inputErrorTo : Styles.formInputTo}
                                 />
+                                {formError.phoneNumber.status && <p className={Styles.errorTipTo}>{formError.phoneNumber.msg}</p>}
                             </div>
                             <div className={Styles.formItemFullTo}>
                                 <label className={Styles.formLabelTo}>Message</label>
@@ -391,7 +465,10 @@ const Contact = () => {
                                     onChange={handleInputChange}
                                     placeholder="Please put your message here..."
                                     className={Styles.formTextareaTo}
+                                    maxLength={rules.messageMaxLen}
                                 />
+                                <p className={Styles.countTipTo}>{formData.message.length}/{rules.messageMaxLen}</p>
+                                {formError.message.status && <p className={Styles.errorTipTo}>{formError.message.msg}</p>}
                             </div>
                             <div className={Styles.submitWrapTo}>
                                 <button onClick={handleSubmit} className={Styles.submitBtnTo}>Submit</button>
