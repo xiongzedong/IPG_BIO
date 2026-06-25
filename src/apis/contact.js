@@ -10,5 +10,5 @@ export const getContactFromSubmit = (params) => {
         credentials: 'include',
     };
 
-    return authRequest.send_BASE_URL(`/contact-messages/submit`, config);
+    return authRequest.send_BASE_URLText(`/contact-messages/submit`, config);
 }

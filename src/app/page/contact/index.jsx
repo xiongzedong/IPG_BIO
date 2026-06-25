@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { message } from 'antd';
-import { ArrowDownOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import { ArrowDownOutlined, EnvironmentOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import Styles from './index.module.scss'
 import { Link, useLocation } from 'react-router-dom'
 // 顶部logo图标（沿用你现有Home页面svg）
@@ -21,6 +21,8 @@ const Contact = () => {
     // 判断是否移动端：宽度≤768
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
     const [isMobileTo, setIsMobileTo] = useState(window.innerWidth <= 414);
+    const [submitSuccess, setSubmitSuccess] = useState(false);
+    const lastSubmitDataRef = useRef(null);
     const herderList = [
         { title: 'Home', path: '/home' },
         { title: 'Business Segments', path: '/business-segments' },
@@ -87,9 +89,26 @@ const Contact = () => {
             }))
         }
     }
-
+    // 深度对比两个表单对象是否完全一致
+    const isSameFormData = (prevData, currentData) => {
+        if (!prevData) return false;
+        return (
+            prevData.firstName === currentData.firstName &&
+            prevData.lastName === currentData.lastName &&
+            prevData.email === currentData.email &&
+            prevData.phoneNumber === currentData.phoneNumber &&
+            prevData.message === currentData.message
+        )
+    }
     // 表单提交校验
     const handleSubmit = () => {
+        debugger
+        // ===== 新增：拦截和上一次提交内容完全相同的表单 =====
+        if (isSameFormData(lastSubmitDataRef.current, formData)) {
+            message.warning('请勿重复提交完全相同的表单内容，请修改信息后再次提交');
+            return;
+        }
+
         let hasError = false
         const newError = {
             firstName: { status: false, msg: '' },
@@ -144,6 +163,8 @@ const Contact = () => {
         if (hasError) {
             return
         }
+
+
         let params = {
             firstName: formData.firstName,
             lastName: formData.lastName,
@@ -152,15 +173,16 @@ const Contact = () => {
             message: formData.message
         }
         getContactFromSubmit(params)
-        .then((res) => {
-            console.log('res',res)
-        })
-        .catch((err) => {
-            console.log('err',err)
-        })
-        .finally(() => {
-            
-        })
+            .then((res) => {
+                setSubmitSuccess(true);
+                lastSubmitDataRef.current = { ...formData };
+            })
+            .catch((err) => {
+                message.error(err?.message)
+            })
+            .finally(() => {
+
+            })
         // setFormData({
         //     firstName: '',
         //     lastName: '',
@@ -346,6 +368,14 @@ const Contact = () => {
                 !isMobileTo ? (
                     <div className={Styles.formWrap} ref={formWrapRef}>
                         <h2 className={Styles.sectionTitle}>Get In Touch</h2>
+                        {
+                            submitSuccess && (
+                                <div className={Styles.successTipBar}>
+                                    <CheckCircleOutlined style={{ color: '#00b42a', marginRight: 6 }} />
+                                    Thank You! Your Message Has Been Submitted Successfully
+                                </div>
+                            )
+                        }
                         <div className={Styles.formGrid}>
                             <div className={Styles.formItem}>
                                 <label className={Styles.formLabel}>First Name <span className={Styles.required}>*</span></label>
@@ -412,6 +442,14 @@ const Contact = () => {
                 ) : (
                     <div className={Styles.formWrapTo} ref={formWrapRef}>
                         <div className={Styles.sectionTitleTo}>Get In Touch</div>
+                        {
+                            submitSuccess && (
+                                <div className={Styles.successTipBar}>
+                                    <CheckCircleOutlined style={{ color: '#00b42a', marginRight: 6 }} />
+                                    Thank You! Your Message Has Been Submitted Successfully
+                                </div>
+                            )
+                        }
                         <div className={Styles.formGridTo}>
                             <div className={Styles.formItemTo}>
                                 <label className={Styles.formLabelTo}>First Name <span className={Styles.requiredTo}>*</span></label>
