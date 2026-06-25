@@ -23,8 +23,9 @@
     display: flex;
     align-items: center;
 }
-.successT
-// 错误提示文字
+
+.successT // 错误提示文字
+
 .errorTip {
     color: #f5222d;
     font-size: 12px;
@@ -446,7 +447,7 @@
 
     /* 移动端汉堡按钮 414px以下显示 */
     .hamburgerBtn {
-        display: none;
+        display: block;
         border: none;
         background: transparent;
         font-size: 28px;
@@ -506,14 +507,6 @@
         color: #333;
         text-decoration: none;
     }
-
-    /* 媒体查询：宽度≤414px 移动端样式 */
-    @media screen and (max-width: 1024) {
-        .hamburgerBtn {
-            display: block;
-        }
-    }
-
     .headerLeft {
         flex: 1;
         margin-left: 32px;
@@ -545,11 +538,66 @@
             top: -32px;
         }
     }
-
     .formWrap {
         background: #f7f9fc;
-        padding: 60px 32px 200px 32px;
-        margin-top: 130px;
+        padding: 60px 32px 120px 32px;
+        margin-top: 140px;
+    }
+    .footerWrap {
+        background: #333;
+        color: #ccc;
+        padding: 60px 32px 120px 32px;
+
+        .footerHead {
+            margin-bottom: 30px;
+
+            .footerLabel {
+                color: #aaa;
+                margin-bottom: 12px;
+            }
+
+            p {
+                margin: 6px 0;
+                font-size: 17px;
+            }
+        }
+
+        .footerOfficeTitle {
+            color: #aaa;
+            margin-bottom: 16px;
+        }
+
+        .officeGrid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px 8px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.8px;
+            color: #f8f8f8;
+            margin-bottom: 149px;
+
+            span {
+                font-size: 16px;
+            }
+        }
+
+        .copyrightWrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+
+            .footerLogo {
+                color: #fff;
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
     }
 }
 
@@ -656,19 +704,65 @@
             top: -32px;
         }
     }
-
-    .formWrap {
+     .formWrap {
         background: #f7f9fc;
         padding: 60px 24px 80px 24px;
         margin-top: 67px;
+    }
+    .footerWrap {
+        background: #333;
+        color: #ccc;
+        padding: 60px 24px 80px 24px;
 
-        .submitBtn {
-            font-size: 24px;
-            font-weight: 600;
+        .footerHead {
+            margin-bottom: 30px;
+
+            .footerLabel {
+                color: #aaa;
+                margin-bottom: 12px;
+            }
+
+            p {
+                margin: 6px 0;
+                font-size: 17px;
+            }
+        }
+
+        .footerOfficeTitle {
+            color: #aaa;
+            margin-bottom: 16px;
+        }
+
+        .officeGrid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px 8px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 20px;
+            font-weight: normal;
             font-stretch: normal;
             font-style: normal;
-            text-align: center;
-            color: #fff;
+            letter-spacing: 0.8px;
+            color: #f8f8f8;
+            margin-bottom: 69px;
+
+            span {
+                font-size: 16px;
+            }
+        }
+
+        .copyrightWrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+
+            .footerLogo {
+                color: #fff;
+                font-size: 24px;
+                font-weight: bold;
+            }
         }
     }
 }
@@ -866,12 +960,11 @@
             }
         }
     }
-
+    
     .footerWrap {
         background-color: #333333;
         color: #cccccc;
         padding: 60px 20px 40px;
-        margin-top: 80px;
 
         .footerContent {
             max-width: 1400px;

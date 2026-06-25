@@ -517,17 +517,19 @@ const Contact = () => {
 
 
 
-            {/* 页脚（完全复用你首页Footer结构） */}
+            {/* 页脚 */}
             <div className={Styles.footerWrap}>
                 <div className={Styles.footerContent}>
+                    {/* 总部信息 */}
                     <div className={Styles.footerHeadQuarter}>
-                        <div className={Styles.footerTipLabel}>Global Headquarters</div>
-                        <div className={Styles.footerAddress}>160 E Tasman Dr #200, San Jose, CA 95134</div>
-                        <div className={Styles.footerContact}>408.200.9891 | hires@intellipro.com</div>
+                        <p className={Styles.footerTipLabel}>Global Headquarters</p>
+                        <p className={Styles.footerAddress}>160 E Tasman Dr #200, San Jose, CA 95134</p>
+                        <p className={Styles.footerContact}>408.200.9891 | hires@intellipro.com</p>
                     </div>
 
+                    {/* 全球办公室列表 */}
                     <div className={Styles.footerOfficeWrap}>
-                        <div className={Styles.footerTipLabel}>Global Offices</div>
+                        <p className={Styles.footerTipLabel}>Global Offices</p>
                         <div className={Styles.officeGrid}>
                             <span>Silicon Valley</span>
                             <span>Los Angeles</span>
@@ -537,6 +539,7 @@ const Contact = () => {
                             <span>Vancouver</span>
                             <span>Toronto</span>
                             <span>Montreal</span>
+
                             <span>London</span>
                             <span>Amsterdam</span>
                             <span>Munich</span>
@@ -545,6 +548,7 @@ const Contact = () => {
                             <span>Beijing</span>
                             <span>Shanghai</span>
                             <span>Hangzhou</span>
+
                             <span>Shenzhen</span>
                             <span>Wuhan</span>
                             <span>Hong Kong</span>
@@ -553,6 +557,7 @@ const Contact = () => {
                             <span>Malaysia</span>
                             <span>Thailand</span>
                             <span>Vietnam</span>
+
                             <span>Indonesia</span>
                             <span>Philippines</span>
                             <span>Australia</span>
@@ -562,6 +567,7 @@ const Contact = () => {
                         </div>
                     </div>
 
+                    {/* 底部版权与链接 */}
                     <div className={Styles.footerCopyright}>
                         <span className={Styles.footerLogo}>IntelliPro</span>
                         <span>© 2026 IntelliPro. All Rights Reserved | Terms of Use | Government Notice</span>
